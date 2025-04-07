@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Example"
+rootProject.name = "Quick Math"
 include(":app")
 include(":library:base")
 //include(":features:library")

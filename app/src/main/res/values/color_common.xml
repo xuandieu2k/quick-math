@@ -140,7 +140,7 @@
     <color name="black30">#4D000000</color>
     <color name="green_007">#48B28D</color>
     <color name="color_main_bg">#00152e</color>
-    <color name="colorAccent">#D81B60</color>
+<!--    <color name="colorAccent">#D81B60</color>-->
     <color name="transparent">#00000000</color>
     <color name="main_bg">#FFA233</color>
     <!-- The color of the button when it is disabled -->

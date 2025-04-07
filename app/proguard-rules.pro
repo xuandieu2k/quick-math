@@ -36,9 +36,9 @@
 -dontwarn okio.**
 
 # Retain your project's layers, including domain, data, and model
--keep class com.dhug.example.data.local.entities.** { *; }
--keep class com.dhug.example.data.local.dto.** { *; }
--keep class com.dhug.example.data.remote.** { *; }
+-keep class com.dhug.quick_math.data.local.entities.** { *; }
+-keep class com.dhug.quick_math.data.local.dto.** { *; }
+-keep class com.dhug.quick_math.data.remote.** { *; }
 
 # Keep classes using Hilt annotations (if using Dagger Hilt)
 -dontwarn dagger.hilt.**
@@ -115,7 +115,7 @@
 # Giữ lại các class liên quan đến Binder
 -keep class * extends android.os.Binder { *; }
 
--keep class com.dhug.example.utils.SecurityUtils { *; }
+-keep class com.dhug.quick_math.utils.SecurityUtils { *; }
 
 # keep worker use to wake up
 -keepclassmembers class * extends androidx.work.Worker {
@@ -140,9 +140,5 @@
 -keep public class * {
     public static final int drawable_*;
 }
-
-# Giữ lại toàn bộ file trong calendar
--keep class vn.cooldev.calendar.** { *; }
--keep class com.cooldev.selector.** { *; }
 
 -keep class com.tencent.mmkv.** { *; }

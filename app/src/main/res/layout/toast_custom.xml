@@ -18,7 +18,7 @@
             android:layout_height="@dimen/dp_40"
             android:src="@mipmap/ic_launcher_round"/>
 
-        <com.dhug.example.base.wiget.AppTextView
+        <com.dhug.quick_math.base.wiget.AppTextView
             android:id="@+id/tvContent"
             style="@style/TextWhiteSp12"
             android:gravity="center"
@@ -27,7 +27,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:text="@string/your_recording_has_to_stop"
             android:text="@{textToast}"/>
     </LinearLayout>
 </layout>

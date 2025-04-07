@@ -34,14 +34,14 @@
             android:orientation="vertical"
             tools:ignore="UselessParent">
 
-            <com.dhug.example.base.wiget.AppTextViewBold
+            <com.dhug.quick_math.base.wiget.AppTextViewBold
                 style="@style/TextGreenSp16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{textTop}"
                 tools:text="@string/monthly"/>
 
-            <com.dhug.example.base.wiget.AppTextView
+            <com.dhug.quick_math.base.wiget.AppTextView
                 style="@style/TextBlackSp12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
 
         </LinearLayout>
 
-        <com.dhug.example.base.wiget.AppTextViewBold
+        <com.dhug.quick_math.base.wiget.AppTextViewBold
             style="@style/TextGreenSp18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

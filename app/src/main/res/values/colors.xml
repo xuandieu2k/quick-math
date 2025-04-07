@@ -9,4 +9,35 @@
     <color name="bg_theme_app">#FFFFFFFF</color>
     <color name="color_status_bar">#FFFFFFFF</color>
     <color name="gray_900">#252C32</color>
+
+    <!-- Backgrounds -->
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorSurface">#FFFDE7</color> <!-- vàng nhạt pastel -->
+
+    <!-- Text -->
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#757575</color>
+
+    <!-- Primary (main tone: xanh lá trẻ trung) -->
+    <color name="colorPrimary">#00C853</color> <!-- xanh lá neon -->
+    <color name="colorPrimaryVariant">#00BFA5</color> <!-- xanh ngọc -->
+
+    <!-- Accent / Action -->
+    <color name="colorAccent">#FF6D00</color> <!-- cam rực -->
+    <color name="colorAccentVariant">#FF4081</color> <!-- hồng đào -->
+
+    <!-- Correct / Incorrect -->
+    <color name="colorCorrect">#2979FF</color> <!-- xanh dương tươi -->
+    <color name="colorIncorrect">#D50000</color> <!-- đỏ mạnh -->
+
+    <!-- Highlight / Level up / Điểm cao -->
+    <color name="colorHighlight">#FFD600</color> <!-- vàng chanh -->
+
+    <!-- Pastel fun colors (phụ - nền, avatar, animation) -->
+    <color name="colorPastelBlue">#B2EBF2</color>
+    <color name="colorPastelPink">#FFD1DC</color>
+    <color name="colorPastelPurple">#E1BEE7</color>
+
+    <!-- Borders or icons -->
+    <color name="colorBorder">#E0E0E0</color>
 </resources>

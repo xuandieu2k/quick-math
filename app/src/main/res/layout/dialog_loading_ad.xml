@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.dhug.example.base.wiget.AppTextViewBold
+    <com.dhug.quick_math.base.wiget.AppTextViewBold
         style="@style/TextWhiteSp16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

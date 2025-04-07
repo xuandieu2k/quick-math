@@ -1,4 +1,4 @@
-package com.dhug.example
+package com.dhug.quick_math
 
 import org.junit.Test
 

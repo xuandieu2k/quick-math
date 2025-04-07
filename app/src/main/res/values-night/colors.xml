@@ -8,4 +8,35 @@
     <color name="text_common_color">#FFFFFFFF</color>
     <color name="color_status_bar">#FFFFFFFF</color>
     <color name="bg_theme_app">#FF000000</color>
+
+    <!-- Backgrounds -->
+    <color name="colorBackground">#121212</color>
+    <color name="colorSurface">#1E1E1E</color>
+
+    <!-- Text -->
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#BDBDBD</color>
+
+    <!-- Primary -->
+    <color name="colorPrimary">#00E676</color>
+    <color name="colorPrimaryVariant">#00BFA5</color>
+
+    <!-- Accent -->
+    <color name="colorAccent">#FFAB40</color>
+    <color name="colorAccentVariant">#FF80AB</color>
+
+    <!-- Correct / Incorrect -->
+    <color name="colorCorrect">#82B1FF</color>
+    <color name="colorIncorrect">#FF5252</color>
+
+    <!-- Highlight -->
+    <color name="colorHighlight">#FFF176</color>
+
+    <!-- Pastel fun colors -->
+    <color name="colorPastelBlue">#80DEEA</color>
+    <color name="colorPastelPink">#F8BBD0</color>
+    <color name="colorPastelPurple">#CE93D8</color>
+
+    <!-- Borders or icons -->
+    <color name="colorBorder">#2C2C2C</color>
 </resources>

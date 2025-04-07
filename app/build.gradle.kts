@@ -11,11 +11,11 @@ plugins {
 }
 
 android {
-    namespace = "com.dhug.example"
+    namespace = "com.dhug.quick_math"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.dhug.example"
+        applicationId = "com.dhug.quick_math"
         minSdk = 21
         targetSdk = 35
         versionCode = 6

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Driver note</string>
+    <string name="app_name">Quick Math</string>
     <string name="processing">Processing…</string>
 
     <!-- General -->
@@ -303,6 +303,16 @@ Brother Wheel
     <string name="share_file_by">Share file by</string>
     <string name="file_not_support">File not support</string>
     <string name="not_have_any_file_is_share">Not have any file is share</string>
+    <string name="provide_by">Provide by</string>
+    <string name="quick">Quick</string>
+    <string name="math">Math</string>
+    <string name="play_online">Play online</string>
+    <string name="play">Play</string>
+    <string name="training">Training</string>
+    <string name="achievements">Achievements</string>
+    <string name="infomation">Information</string>
+    <string name="wrong">Wrong!</string>
+    <string name="competition">Competition</string>
 
     <!--    -->
 
