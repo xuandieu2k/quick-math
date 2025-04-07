@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFF7F9"
+    android:fitsSystemWindows="true">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/llTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="end"
+                android:paddingHorizontal="@dimen/dp_16"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btnClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imvBanner">
+
+                <include
+                    android:id="@+id/layoutPaywallPremium"
+                    layout="@layout/layout_paywall_premium" />
+
+                <include
+                    android:id="@+id/layoutPaywallDetail"
+                    layout="@layout/layout_paywall_detail" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPaywall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_paywall_lifetime"
+                    tools:orientation="vertical" />
+
+                <com.dhug.example.base.wiget.AppTextView
+                    android:id="@+id/tvSubContentBottom"
+                    style="@style/TextBlackSp12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:gravity="center" />
+
+                <include
+                    android:id="@+id/layoutShimmerPaywall"
+                    layout="@layout/layout_shimmer_paywall" />
+
+                <include
+                    android:id="@+id/layoutNoConnectionPaywall"
+                    layout="@layout/layout_no_connection_paywall" />
+
+                <com.dhug.example.base.wiget.AppTextView
+                    android:id="@+id/tvDescription"
+                    style="@style/TextBlackSp10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/dp_1"
+                    android:paddingHorizontal="@dimen/dp_16"
+                    android:paddingVertical="@dimen/dp_4"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Premium Subscription:\n• Subscribed users have unlimited use of the app and access to all of its Premium features, without any ads.\n• Non-subscribed users can continuously use the app with advertisements, and have a limited daily quota for use of Premium features.\n• Users can subscribe to different plans: {FREE_TRIAL_TITLE} trial package - start {FREE_TRIAL_DURATION} free trial then {FREE_TRIAL_PRICE} per {FREE_TRIAL_PERIOD}, auto renew every {FREE_TRIAL_PERIOD}, {MONTHLY_TITLE} package - {MONTHLY_PRICE} per {MONTHLY_PERIOD}, auto renew every {MONTHLY_PERIOD}, {WEEKLY_TITLE} package - {WEEKLY_PRICE} per {WEEKLY_PERIOD}, auto renew every {WEEKLY_PERIOD}.\n• Alternatively, users can purchase the full app ({LIFETIME_TITLE}) for a one-time payment of {LIFETIME_PRICE}. \n• Payment will be charged to your Google Account at confirmation of purchase.\n• Subscriptions automatically renew unless auto-renew is disabled at least 24 hours before the end of the current period.\n• Account will be charged for renewal within 24-hour prior to the end of the current period and identify the cost of renewal.\n• Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.\n• Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user's Account Settings after purchase. Note that uninstalling the app will not cancel your subscription.\n1. On your Android phone or tablet, open the Google Play Store\n2. Check if you're signed into the correct Google Account.\n3. Tap Menu Subscriptions.\n4. Select the subscription you want to cancel.\n5. Tap Cancel subscription.\n6. Follow the instructions." />
+
+            </LinearLayout>
+
+
+            <!--            <androidx.core.widget.NestedScrollView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:paddingHorizontal="@dimen/dp_16"-->
+            <!--                android:paddingVertical="@dimen/dp_4"-->
+            <!--                app:layout_constraintHeight_max="@dimen/dp_160"-->
+            <!--                app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--                app:layout_constraintRight_toRightOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/llContent">-->
+
+            <!--                <com.cooldev.driver.dashcam.base.wiget.AppTextView-->
+            <!--                    android:id="@+id/tvDescription"-->
+            <!--                    style="@style/TextWhiteSp10"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:lineSpacingExtra="@dimen/dp_1"-->
+            <!--                    android:nestedScrollingEnabled="true"-->
+            <!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+            <!--                    app:layout_constraintRight_toRightOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent"-->
+            <!--                    tools:text="Premium Subscription:\n• Subscribed users have unlimited use of the app and access to all of its Premium features, without any ads.\n• Non-subscribed users can continuously use the app with advertisements, and have a limited daily quota for use of Premium features.\n• Users can subscribe to different plans: {FREE_TRIAL_TITLE} trial package - start {FREE_TRIAL_DURATION} free trial then {FREE_TRIAL_PRICE} per {FREE_TRIAL_PERIOD}, auto renew every {FREE_TRIAL_PERIOD}, {MONTHLY_TITLE} package - {MONTHLY_PRICE} per {MONTHLY_PERIOD}, auto renew every {MONTHLY_PERIOD}, {WEEKLY_TITLE} package - {WEEKLY_PRICE} per {WEEKLY_PERIOD}, auto renew every {WEEKLY_PERIOD}.\n• Alternatively, users can purchase the full app ({LIFETIME_TITLE}) for a one-time payment of {LIFETIME_PRICE}. \n• Payment will be charged to your Google Account at confirmation of purchase.\n• Subscriptions automatically renew unless auto-renew is disabled at least 24 hours before the end of the current period.\n• Account will be charged for renewal within 24-hour prior to the end of the current period and identify the cost of renewal.\n• Any unused portion of a free trial period, if offered, will be forfeited when the user purchases a subscription to that publication, where applicable.\n• Subscriptions may be managed by the user and auto-renewal may be turned off by going to the user's Account Settings after purchase. Note that uninstalling the app will not cancel your subscription.\n1. On your Android phone or tablet, open the Google Play Store\n2. Check if you're signed into the correct Google Account.\n3. Tap Menu Subscriptions.\n4. Select the subscription you want to cancel.\n5. Tap Cancel subscription.\n6. Follow the instructions." />-->
+            <!--            </androidx.core.widget.NestedScrollView>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

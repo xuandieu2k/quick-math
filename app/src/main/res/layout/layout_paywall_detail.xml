@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_8"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/dp_32">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingVertical="@dimen/dp_16"-->
+<!--        tools:ignore="UselessParent">-->
+
+<!--        <com.dhug.example.base.wiget.AppTextViewBold-->
+<!--            style="@style/TextGrayCommon"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/dp_10"-->
+<!--            android:layout_marginEnd="@dimen/dp_8"-->
+<!--            android:layout_weight="0.6"-->
+<!--            android:text="@string/compare_all_features" />-->
+
+<!--        <com.dhug.example.base.wiget.AppTextViewBold-->
+<!--            style="@style/TextGrayCommon"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:text="@string/free" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center_horizontal">-->
+
+
+<!--            <com.dhug.example.base.wiget.AppTextViewBold-->
+<!--                style="@style/TextGreenSp14"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:text="@string/_pro" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:layout_width="@dimen/dp_12"-->
+<!--                android:layout_height="@dimen/dp_12"-->
+<!--                android:src="@drawable/premium" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash;    &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingVertical="@dimen/dp_8">-->
+
+<!--        <com.dhug.example.base.wiget.AppTextViewBold-->
+<!--            style="@style/TextBlackSp12"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/dp_8"-->
+<!--            android:layout_weight="0.6"-->
+<!--            android:text="@string/unlimit_add_car" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_close_square" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_check_square" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash;    &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingVertical="@dimen/dp_8">-->
+
+<!--        <com.dhug.example.base.wiget.AppTextViewBold-->
+<!--            style="@style/TextBlackSp12"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/dp_8"-->
+<!--            android:layout_weight="0.6"-->
+<!--            android:text="@string/remove_interrupted_ads" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_close_square" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_check_square" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash;    &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingVertical="@dimen/dp_8">-->
+
+<!--        <com.dhug.example.base.wiget.AppTextViewBold-->
+<!--            style="@style/TextBlackSp12"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/dp_8"-->
+<!--            android:layout_weight="0.6"-->
+<!--            android:text="@string/unlimit_track_performance" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_close_square" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_check_square" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash;    &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingVertical="@dimen/dp_8">-->
+
+<!--        <com.dhug.example.base.wiget.AppTextViewBold-->
+<!--            style="@style/TextBlackSp12"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/dp_8"-->
+<!--            android:layout_weight="0.6"-->
+<!--            android:text="@string/visualize_your_income_in_real_time" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_close_square" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="0.2"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/ic_check_square" />-->
+
+<!--    </LinearLayout>-->
+
+</LinearLayout>

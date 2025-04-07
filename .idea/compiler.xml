@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="DriverNote.app" target="21" />
+      <module name="DriverNote.library.base" target="21" />
+      <module name="DriverNote.library.calendar" target="21" />
+      <module name="DriverNote.library.selector" target="21" />
+      <module name="DriverNote.library.wiget" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

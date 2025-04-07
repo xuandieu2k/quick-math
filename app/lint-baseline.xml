@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.2" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.2)" variant="fatal" version="8.7.2">
+
+    <issue
+        id="Instantiatable"
+        message="`SplashActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.base.ui.activity.SplashActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="80"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`HomeActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.HomeActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="98"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`CrashActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.base.ui.activity.CrashActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="105"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`RestartActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.base.ui.activity.RestartActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="110"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`IntroActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.IntroActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="115"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`SettingActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.SettingActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="120"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`LibraryActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.LibraryActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="125"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`LockActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.LockActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="129"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`PictureActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.PictureActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="133"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`VideoActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.VideoActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="137"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`PreviewMediaActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.PreviewMediaActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="141"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`InformationMediaActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.InformationMediaActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="145"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`PaywallActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.presentation.view.activity.PaywallActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="149"
+            column="27"/>
+    </issue>
+
+</issues>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="textTop"
+            type="String" />
+        <variable
+            name="textBottom"
+            type="String" />
+
+        <variable
+            name="textPrice"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_tran_border_radius_1dp"
+        android:paddingHorizontal="@dimen/dp_24"
+        android:paddingVertical="@dimen/dp_16"
+        android:backgroundTint="#B0BBC9"
+        tools:backgroundTint="#B0BBC9">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <com.dhug.example.base.wiget.AppTextViewBold
+                style="@style/TextGreenSp16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{textTop}"
+                tools:text="@string/monthly"/>
+
+            <com.dhug.example.base.wiget.AppTextView
+                style="@style/TextBlackSp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@{textBottom}"
+                tools:text="@string/renew_monthly"/>
+
+        </LinearLayout>
+
+        <com.dhug.example.base.wiget.AppTextViewBold
+            style="@style/TextGreenSp18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical|end"
+            android:text="@{textPrice}"
+            tools:text="230,000Đ" />
+
+    </LinearLayout>
+    
+    
+</layout>

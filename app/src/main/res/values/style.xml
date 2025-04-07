@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor">#00000000</item>
+    </style>
+
+    <style name="TextSplash">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+        <item name="fontFamily">@font/plus_fakarta_sans_semi_bold</item>
+    </style>
+
+    <style name="TextNormal">
+        <item name="android:textColor">@color/text_common_color</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="TextWhiteCommon">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextGrayCommon">
+        <item name="android:textColor">#667A91</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextBlackCommon">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextWhiteSp16">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+
+    <style name="TextWhiteSp24">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="TextGreenSp16">
+        <item name="android:textColor">#058168</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextBlackSp28">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_28</item>
+    </style>
+
+    <style name="TextWhiteSp10">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="TextWhiteSp18">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="TextGreenSp18">
+        <item name="android:textColor">#07AF8D</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="TextGreenSp12">
+        <item name="android:textColor">#07AF8D</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextGreenCommon">
+        <item name="android:textColor">#07AF8D</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextGreenSp10">
+        <item name="android:textColor">#07AF8D</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="TextRedSp18">
+        <item name="android:textColor">#E11D3F</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="TextRedSp12">
+        <item name="android:textColor">#E11D3F</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextRedCommon">
+        <item name="android:textColor">#E11D3F</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextRedSp10">
+        <item name="android:textColor">#E11D3F</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="TextBlackSp16">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextBlackSp18">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="TextBlackSp10">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="TextWhiteSp12">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextBlackSp12">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextGraySp12">
+        <item name="android:textColor">#B0BABF</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextGraySp10">
+        <item name="android:textColor">#B0BABF</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextGraySp14">
+        <item name="android:textColor">#B0BABF</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextYellowSp14">
+        <item name="android:textColor">#F8C513</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextGreenSp14">
+        <item name="android:textColor">#069A7C</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextGrayInformationSp16">
+        <item name="android:textColor">#9CA3AF</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+
+    <style name="TextReachedLimitTitle">
+        <item name="android:textColor">#F8C513</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextContentReachedLimit">
+        <item name="android:textColor">#B0BABF</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextButtonReachedLimit">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="TitleIntro">
+        <item name="android:textColor">@color/black_common</item>
+        <item name="android:textSize">@dimen/sp_22</item>
+        <item name="fontFamily">@font/plus_fakarta_sans_semi_bold</item>
+    </style>
+
+    <style name="SubTitleIntro">
+        <item name="android:textColor">#516278</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextInformationRecord">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="TextSpace">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+    <!--  Privacy  -->
+    <style name="TextTitleDialog">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_28</item>
+    </style>
+
+    <style name="TextPrivacyRule">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="TextPrivacyContentRule">
+        <item name="android:textColor">#B0BABF</item>
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="TextNoteRule">
+        <item name="android:textColor">#EF4444</item>
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="TextButtonPrivacy">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextRatingTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="TextCameraPermission">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+
+    <style name="TextDescriptionCameraPermission">
+        <item name="android:textColor">#B0BABF</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextTimer">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_gradient_radius_4dp</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextTitleSetting">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="TextSubItemSetting">
+        <item name="android:textColor">#31A3C0</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextCategoryItemSetting">
+        <item name="android:textColor">#9CA3AF</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="TextSubTitleDialogSetting">
+        <item name="android:textColor">#9CA3AF</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="TextButtonTitleBar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+
+    <style name="ScrollBar">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarThumbVertical">@drawable/bg_thumb_scroll_bar</item>
+    </style>
+
+
+    <style name="TitleTitleWarning">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+
+    <style name="TextInCard">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="TextMini">
+        <item name="android:textColor">@color/gray_600</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="TextViewNumberDark" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/blue_700</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/dp_4</item>
+        <item name="android:paddingBottom">@dimen/dp_4</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="TransparentDialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="SearchView">
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:editTextColor">@color/black_common</item>
+        <item name="android:textColorHint">@color/gray_600</item>
+        <item name="titleTextColor">@color/green_primary</item>
+        <item name="closeIconTint">@color/green_primary</item>
+<!--        <item name="searchIcon">@drawable/ic_search_normal</item>-->
+        <item name="fontFamily">@font/plus_fakarta_sans_regular</item>
+    </style>
+
+    <style name="FAB_Square_Corner">
+        <item name="cornerSize">@dimen/dp_8</item>
+    </style>
+
+
+    <style name="FAB_Circle_Corner">
+        <item name="cornerSize">@dimen/dp_24</item>
+    </style>
+
+    <style name="BottomNavTextActive" parent="@android:style/TextAppearance.Material">
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/plus_jakarta_sans_medium</item>
+    </style>
+
+    <style name="BottomNavTextInactive" parent="@android:style/TextAppearance.Material">
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/plus_jakarta_sans_medium</item>
+    </style>
+
+    <style name="ThemeOverlay.CustomMaterialTimePicker" parent="ThemeOverlay.Material3.MaterialTimePicker">
+        <!--        <item name="colorPrimary">#FF5722</item>-->
+        <!--        <item name="colorOnPrimary">#FFFFFF</item>-->
+        <!--        <item name="colorSecondary">#FFC107</item>-->
+    </style>
+
+
+</resources>
