@@ -28,7 +28,7 @@ object SecurityUtils {
     private const val KEY_FACTORY_ALGORITHM = "RSA"
     private const val SIGNATURE_ALGORITHM = "SHA1withRSA"
 
-    private const val BASE_64_ENCODED_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAycsTELoO6X7PvqLmmagBmo1W4xt3q6EX5EmjpXh/PXv6bJbaModqEWzujDckbG9qpDh4yxX0uf9OcUsgBxWt2HGhXndn9kzSyQA88dYFVHoSzioOwYZ6SvjeIJC2UlNapigSBkBAPGSFdcDsyh28NDEFGkzgwFBir3sudHx+QXYGKq+KDXfydZdKxGMfvlZd6SH8Qtw8hnVvmvWgXsgSA1fg2yt5BN2k8LXLkv2esw9YTfmMblWCEGo+JgL69D4qBBmHEhJ9Yejxuh7KRLH1GPPW4oAZubOQkOAvIe/MVAmsVUArILrqhau4FUIxG5DAPcRJoEBHSmcw8WZcmfaYJwIDAQAB"
+    private const val BASE_64_ENCODED_PUBLIC_KEY = "45345"
 
     @Throws(IOException::class)
     fun verifyPurchase(base64PublicKey: String, signedData: String, signature: String): Boolean {
