@@ -71,7 +71,7 @@ android {
 //            buildConfigField("int", "VERSION_CODE", "${defaultConfig.versionCode}")
             buildConfigField("String", "VERSION_NAME", "\"${defaultConfig.versionName}\"")
             buildConfigField("String", "ADMOB_APP_ID", "\"ca-app-pub-3940256099942544~3347511713\"")
-            manifestPlaceholders["MAPS_API_KEY"] = "AIzaSyDXrlpexESoQlmUFcUuTGmEkwuseyabxyg"  // AIzaSyAI9kPkskayYti5ttrZL_UfBlL3OkMEbvs
+            manifestPlaceholders["MAPS_API_KEY"] = "AIzaSyAI9kPkskayYti5ttrZL_UfBlL3OkMEbvs"
             manifestPlaceholders["ADMOB_APP_ID"] = "ca-app-pub-3940256099942544~3347511713"
 //            // Only one architecture so library is retained in debug mode to improve packaging speed
 //            ndk {
@@ -97,8 +97,8 @@ android {
 //            buildConfigField("Int", "VERSION_CODE", "${defaultConfig.versionCode}")
             buildConfigField("String", "VERSION_NAME", "\"${defaultConfig.versionName}\"")
             buildConfigField("String","ADMOB_APP_ID","\"ca-app-pub-1843002830475037~8810756712\"")
-            manifestPlaceholders["MAPS_API_KEY"] = "AIzaSyDXrlpexESoQlmUFcUuTGmEkwuseyabxyg"
-            manifestPlaceholders["ADMOB_APP_ID"] = "ca-app-pub-1843002830475037~8810756712"
+            manifestPlaceholders["MAPS_API_KEY"] = "AIzaSyAI9kPkskayYti5ttrZL_UfBlL3OkMEbvs"
+            manifestPlaceholders["ADMOB_APP_ID"] = "ca-app-pub-3940256099942544~3347511713"
         }
     }
 
