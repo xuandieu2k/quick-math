@@ -8,7 +8,7 @@ import com.hjq.permissions.OnPermissionCallback
 import com.hjq.permissions.Permission
 import com.hjq.permissions.XXPermissions
 import com.hjq.toast.ToastUtils
-import com.cooldev.base.BaseDialog
+import com.dhug.base.BaseDialog
 import com.dhug.quick_math.R
 import java.util.*
 import com.dhug.quick_math.base.manager.ActivityManager

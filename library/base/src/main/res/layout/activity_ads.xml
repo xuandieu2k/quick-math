@@ -4,7 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BaseAdsActivity">
+    tools:context="com.dhug.base.BaseAdsActivity">
 
     <!-- Main content -->
     <FrameLayout
@@ -18,7 +18,7 @@
 
 
     <!-- AdView -->
-    <com.cooldev.base.wiget.AdsView
+    <com.dhug.base.wiget.AdsView
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

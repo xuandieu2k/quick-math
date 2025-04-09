@@ -10,7 +10,7 @@
       </SelectionState>
       <SelectionState runConfigName="Quick_Math.app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-04-07T14:29:10.111998Z">
+        <DropdownSelection timestamp="2025-04-09T14:47:20.537618Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="PhysicalDevice" identifier="serial=e5c8c05b" />

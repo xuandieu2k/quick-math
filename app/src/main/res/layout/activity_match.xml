@@ -36,6 +36,58 @@
     </LinearLayout>
 
     <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/llHeader"
+        android:layout_marginTop="@dimen/dp_8"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_12"
+            android:gravity="center_vertical">
+            <com.dhug.quick_math.base.wiget.AppTextView
+                android:id="@+id/tvSumQuestion"
+                style="@style/TextAutoCommon"
+                tools:text="Câu hỏi số: 23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|end"
+                android:layout_weight="1">
+
+                <com.dhug.quick_math.base.wiget.AppTextView
+                    android:id="@+id/tvTimer"
+                    style="@style/TextAutoCommon"
+                    tools:text="01:00"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lavGlassHour"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/glasshour"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/sbTimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/dp_8"

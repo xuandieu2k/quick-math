@@ -18,8 +18,8 @@ android {
         applicationId = "com.dhug.quick_math"
         minSdk = 21
         targetSdk = 35
-        versionCode = 6
-        versionName = "1.4"
+        versionCode = 1
+        versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
 
         // Only xxhdpi image resources are retained (currently mainstream resolution 1920 * 1080)

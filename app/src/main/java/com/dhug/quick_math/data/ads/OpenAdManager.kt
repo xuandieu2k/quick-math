@@ -12,7 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
-import com.cooldev.base.BaseConstants
+import com.dhug.base.BaseConstants
 import com.dhug.quick_math.utils.MMKVUtils
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest

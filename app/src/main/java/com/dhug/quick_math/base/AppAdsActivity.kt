@@ -10,8 +10,8 @@ import androidx.annotation.StringRes
 import com.dhug.quick_math.data.ads.InterstitialAdManager
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
-import com.cooldev.base.BaseAdsActivity
-import com.cooldev.base.BaseDialog
+import com.dhug.base.BaseAdsActivity
+import com.dhug.base.BaseDialog
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.action.TitleBarAction
 import com.dhug.quick_math.base.ui.dialog.WaitDialog

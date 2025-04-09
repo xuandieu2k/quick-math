@@ -109,6 +109,16 @@
             android:launchMode="singleTop"
             android:windowSoftInputMode="adjustPan" />
 
+        <activity
+            android:name="com.dhug.quick_math.presentation.view.activity.InformationActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name="com.dhug.quick_math.presentation.view.activity.SettingActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan" />
+
         <!--        &lt;!&ndash; Crash display (must be in an independent process) &ndash;&gt;-->
         <!--        <activity-->
         <!--            android:name="com.dhug.quick_math.base.ui.activity.CrashActivity"-->

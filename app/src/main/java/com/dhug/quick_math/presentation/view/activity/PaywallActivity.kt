@@ -1,6 +1,5 @@
 package com.dhug.quick_math.presentation.view.activity
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -12,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
-import com.cooldev.base.BaseConstants
+import com.dhug.base.BaseConstants
 import com.dhug.quick_math.R
 import dagger.hilt.android.AndroidEntryPoint
 import com.dhug.quick_math.base.AppActivity
@@ -26,7 +25,6 @@ import com.dhug.quick_math.utils.AppConstants
 import com.dhug.quick_math.utils.AppUtils
 import com.dhug.quick_math.utils.AppUtils.hide
 import com.dhug.quick_math.utils.AppUtils.show
-import com.dhug.quick_math.utils.BillingUtils
 import com.dhug.quick_math.utils.MMKVUtils
 import com.dhug.quick_math.utils.MoneyUtils
 import com.dhug.quick_math.utils.PayWallConstants
@@ -43,7 +41,6 @@ import kotlin.collections.firstOrNull
 import kotlin.collections.forEach
 import kotlin.collections.isNotEmpty
 import kotlin.collections.toMutableList
-import kotlin.jvm.java
 import kotlin.let
 import kotlin.text.contains
 import kotlin.text.ifEmpty

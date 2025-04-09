@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IntRange
 import androidx.annotation.LayoutRes
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewbinding.ViewBinding
-import com.cooldev.base.BaseAdapter
+import com.dhug.base.BaseAdapter
 import vn.cooldev.wiget.databinding.ItemTabCenterBinding
 import vn.cooldev.wiget.databinding.ItemTabNormalBinding
 import vn.cooldev.wiget.interfaces.OnTabChangeListener

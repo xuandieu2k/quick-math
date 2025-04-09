@@ -122,7 +122,7 @@
                     android:background="@drawable/ripple_button"
                     android:paddingVertical="@dimen/dp_16"
                     android:layout_marginVertical="@dimen/dp_8"
-                    android:text="@string/infomation"/>
+                    android:text="@string/information"/>
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

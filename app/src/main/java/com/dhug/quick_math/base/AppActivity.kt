@@ -10,8 +10,8 @@ import com.dhug.quick_math.data.ads.InterstitialAdManager
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
 import com.dhug.quick_math.base.ui.dialog.WaitDialog
-import com.cooldev.base.BaseActivity
-import com.cooldev.base.BaseDialog
+import com.dhug.base.BaseActivity
+import com.dhug.base.BaseDialog
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.action.TitleBarAction
 import com.dhug.quick_math.base.ui.activity.SplashActivity

@@ -7,7 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import com.cooldev.base.BaseConstants
+import com.dhug.base.BaseConstants
 import com.dhug.quick_math.presentation.dialog.LoadingAdDialog
 import com.dhug.quick_math.utils.MMKVUtils
 import com.google.android.gms.ads.AdError

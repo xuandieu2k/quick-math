@@ -9,7 +9,7 @@ import android.widget.LinearLayout
 import androidx.annotation.IntRange
 import androidx.annotation.LayoutRes
 import androidx.core.view.isVisible
-import com.cooldev.base.BaseAdapter
+import com.dhug.base.BaseAdapter
 import vn.cooldev.wiget.databinding.ItemTabBinding
 import vn.cooldev.wiget.interfaces.OnTabUpdateListener
 import vn.cooldev.wiget.model.Tab

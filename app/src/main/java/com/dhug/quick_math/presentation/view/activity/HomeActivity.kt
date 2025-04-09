@@ -46,10 +46,10 @@ class HomeActivity : AppAdsActivity() {
 
             }
             binding.btnSetting ->{
-
+                startActivity(Intent(this, SettingActivity::class.java))
             }
             binding.btnInformation ->{
-
+                startActivity(Intent(this, InformationActivity::class.java))
             }
         }
     }

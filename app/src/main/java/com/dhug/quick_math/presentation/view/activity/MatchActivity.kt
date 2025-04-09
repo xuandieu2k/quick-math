@@ -1,8 +1,10 @@
 package com.dhug.quick_math.presentation.view.activity
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.lifecycleScope
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.AppAdsActivity
@@ -12,7 +14,7 @@ import com.dhug.quick_math.databinding.ActivityMatchBinding
 import com.dhug.quick_math.presentation.adapter.AnswerAdapter
 import com.dhug.quick_math.presentation.viewmodel.MatchViewModel
 import com.dhug.quick_math.utils.AppUtils
-import com.hjq.toast.ToastUtils
+import com.dhug.quick_math.utils.MoneyUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -41,6 +43,7 @@ class MatchActivity : AppAdsActivity() {
 
     private fun setUpView() {
         setOnClickListener(binding.btnBack)
+        setUpSeekBar()
     }
 
     private fun initRecycleView() {
@@ -48,10 +51,15 @@ class MatchActivity : AppAdsActivity() {
         AppUtils.initRecyclerViewHorizontal(binding.rvAnswer, answerAdapter, 2)
         answerAdapter.setOnListener(object : AnswerAdapter.OnClickAnswer {
             override fun onAnswer(position: Int, item: String) {
+                if (matchViewModel.timeLeftMillis.value == 0L) return
                 if (position == matchViewModel.question.value?.correctIndex) {
                     matchViewModel.updateQuestion()
                 } else {
-                    AppToast(this@MatchActivity, getString(R.string.wrong), Toast.LENGTH_SHORT).show()
+                    AppToast(
+                        this@MatchActivity,
+                        getString(R.string.wrong),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
@@ -68,15 +76,68 @@ class MatchActivity : AppAdsActivity() {
             matchViewModel.question.collectLatest {
                 it?.let {
                     updateUIWithQuestion(it)
+                    matchViewModel.startTimer()
                 }
             }
         }
+
+        lifecycleScope.launch {
+            matchViewModel.sumOfQuestion.collectLatest {
+                updateViewSumOfQuestion(it)
+            }
+        }
+
+        lifecycleScope.launch {
+            matchViewModel.timeLeftMillis.collectLatest {
+                updateSeekBarTimer(it)
+            }
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun lockSeekBarInteraction() {
+        binding.sbTimer.setOnTouchListener { _, _ -> true }
+    }
+
+
+    private fun setUpSeekBar() {
+        binding.sbTimer.max = 100
+        lockSeekBarInteraction()
+
+    }
+
+    private fun updateSeekBarTimer(
+        millisUntilFinished: Long,
+        totalTimeMillis: Long = matchViewModel.totalTimeMillis.value
+    ) {
+        val percent = (millisUntilFinished.toFloat() / totalTimeMillis * 100).toInt()
+        binding.sbTimer.progress = percent
+        binding.tvTimer.text = formatTime(millisUntilFinished)
+        binding.tvTimer.setTextColor(
+            AppCompatResources.getColorStateList(
+                this,
+                if (millisUntilFinished >= 10000L) R.color.colorTextPrimary else R.color.red_primary
+            )
+        )
+    }
+
+    @SuppressLint("DefaultLocale")
+    private fun formatTime(millis: Long): String {
+        val seconds = (millis / 1000) % 60
+        val minutes = (millis / 1000) / 60
+        return String.format("%02d:%02d", minutes, seconds)
     }
 
     private fun updateUIWithQuestion(question: QuickMath.Question) {
         binding.tvQuestion.text = question.questionText
 
         answerAdapter.setData(question.options.toMutableList())
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateViewSumOfQuestion(sum: Int) {
+        binding.tvSumQuestion.text =
+            "${getString(R.string.question)} ${MoneyUtils.formatBigDecimal(sum.toBigDecimal())}"
     }
 
     override fun setAdPosition(): Companion.AdPosition = Companion.AdPosition.BOTTOM

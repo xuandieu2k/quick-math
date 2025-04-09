@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.View
 import androidx.annotation.IntRange
 import androidx.annotation.LayoutRes
-import com.cooldev.base.BaseAdapter
+import com.dhug.base.BaseAdapter
 import java.util.*
 
 /**

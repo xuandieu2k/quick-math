@@ -5,8 +5,8 @@ import android.view.*
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
-import com.cooldev.base.action.AnimAction
-import com.cooldev.base.BaseDialog
+import com.dhug.base.action.AnimAction
+import com.dhug.base.BaseDialog
 import com.dhug.quick_math.R
 import com.dhug.quick_math.utils.ExtensionUtils
 

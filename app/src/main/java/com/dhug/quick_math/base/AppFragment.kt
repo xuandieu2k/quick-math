@@ -1,7 +1,6 @@
 package com.dhug.quick_math.base
 
-import com.cooldev.base.BaseAdsFragment
-import com.cooldev.base.BaseFragment
+import com.dhug.base.BaseFragment
 import com.dhug.quick_math.base.action.ToastAction
 import dagger.hilt.android.AndroidEntryPoint
 

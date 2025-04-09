@@ -3,7 +3,7 @@ package com.dhug.quick_math.base.manager
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import com.cooldev.base.BaseDialog
+import com.dhug.base.BaseDialog
 import java.util.*
 
 /**
