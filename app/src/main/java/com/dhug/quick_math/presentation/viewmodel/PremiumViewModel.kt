@@ -21,14 +21,22 @@ class PremiumViewModel @Inject constructor(
         MutableLiveData(Resource.Success(Pair(MMKVUtils.areAnyPremiumsActive(), false)))
     val isPremium: LiveData<Resource<Pair<Boolean, Boolean>>> = _isPremium
 
-    fun refreshPurchase(onDone: () -> Unit, onError: (Throwable) -> Unit) {
+    fun refreshPurchase(onDone: () -> Unit, onError: (ex: Exception) -> Unit) {
         viewModelScope.launch {
             purchaseUseCase.refreshPurchases(
                 onDone = {
-                    _isPremium.value = Resource.Success(Pair(MMKVUtils.areAnyPremiumsActive(), true))
+                    _isPremium.value =
+                        Resource.Success(Pair(MMKVUtils.areAnyPremiumsActive(), true))
                     onDone()
-                    Timber.tag("Log Refresh Purchase:").d("Data: ${GsonBuilder().create().toJson(Pair(
-                        MMKVUtils.areAnyPremiumsActive(), true))}")
+                    Timber.tag("Log Refresh Purchase:").d(
+                        "Data: ${
+                            GsonBuilder().create().toJson(
+                                Pair(
+                                    MMKVUtils.areAnyPremiumsActive(), true
+                                )
+                            )
+                        }"
+                    )
                 },
                 onError = {
                     onError(it)

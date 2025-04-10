@@ -1,5 +1,6 @@
 package com.dhug.quick_math.presentation.view.activity
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -12,11 +13,11 @@ import com.dhug.quick_math.databinding.ActivityTrainingBinding
 import com.dhug.quick_math.presentation.adapter.AnswerAdapter
 import com.dhug.quick_math.presentation.viewmodel.MatchViewModel
 import com.dhug.quick_math.utils.AppUtils
+import com.dhug.quick_math.utils.MoneyUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.getValue
 
 @AndroidEntryPoint
 class TrainingActivity : AppAdsActivity() {
@@ -50,8 +51,14 @@ class TrainingActivity : AppAdsActivity() {
             override fun onAnswer(position: Int, item: String) {
                 if (position == matchViewModel.question.value?.correctIndex) {
                     matchViewModel.updateQuestion()
+                    matchViewModel.updateSumCorrectAnswer()
                 } else {
-                    AppToast(this@TrainingActivity, getString(R.string.wrong), Toast.LENGTH_SHORT).show()
+                    matchViewModel.updateSumInCorrectAnswer()
+                    AppToast(
+                        this@TrainingActivity,
+                        getString(R.string.wrong),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
@@ -71,6 +78,38 @@ class TrainingActivity : AppAdsActivity() {
                 }
             }
         }
+
+        lifecycleScope.launch {
+            matchViewModel.sumInCorrectAnswer.collectLatest {
+                updateViewIncorrectAnswer(it)
+            }
+        }
+
+        lifecycleScope.launch {
+            matchViewModel.sumCorrectAnswer.collectLatest {
+                updateViewCorrectAnswer(it)
+            }
+        }
+
+        lifecycleScope.launch {
+            matchViewModel.sumOfQuestion.collectLatest {
+                updateViewSumOfQuestion(it)
+            }
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun updateViewSumOfQuestion(sum: Int) {
+        binding.tvSumQuestion.text =
+            "${getString(R.string.question)} ${MoneyUtils.formatBigDecimal(sum.toBigDecimal())}"
+    }
+
+    private fun updateViewIncorrectAnswer(number: Int) {
+        binding.tvNumberOfIncorrect.text = MoneyUtils.formatBigDecimal(number.toBigDecimal())
+    }
+
+    private fun updateViewCorrectAnswer(number: Int) {
+        binding.tvNumberOfCorrect.text = MoneyUtils.formatBigDecimal(number.toBigDecimal())
     }
 
     private fun updateUIWithQuestion(question: QuickMath.Question) {

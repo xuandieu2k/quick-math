@@ -143,7 +143,7 @@ class BillingRepositoryImpl @Inject constructor(
     }
 
 
-    override suspend fun refreshPurchases(onDone: () -> Unit, onError: (Throwable) -> Unit) {
+    override suspend fun refreshPurchases(onDone: () -> Unit, onError: (ex: Exception) -> Unit) {
         val iapParams = QueryPurchasesParams.newBuilder()
             .setProductType(BillingClient.ProductType.INAPP)
             .build()

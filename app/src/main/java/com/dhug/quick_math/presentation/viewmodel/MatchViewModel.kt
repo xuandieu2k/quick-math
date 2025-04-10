@@ -25,12 +25,21 @@ class MatchViewModel @Inject constructor() : ViewModel() {
     private val _sumOfQuestion: MutableStateFlow<Int> = MutableStateFlow(0)
     val sumOfQuestion: StateFlow<Int> get() = _sumOfQuestion.asStateFlow()
 
-    private val _timeLeftMillis = MutableStateFlow(60000L)
+    private val _highestQuestion: MutableStateFlow<Int> = MutableStateFlow(100)
+    val highestQuestion: StateFlow<Int> get() = _highestQuestion.asStateFlow()
+
+    private val _timeLeftMillis = MutableStateFlow(30 * 1000L)
     val timeLeftMillis: StateFlow<Long> = _timeLeftMillis
 
     private var countDownTimer: CountDownTimer? = null
-    private val _totalTimeMillis = MutableStateFlow(60000L)
+    private val _totalTimeMillis = MutableStateFlow(30 * 1000L)
     val totalTimeMillis: StateFlow<Long> = _totalTimeMillis
+
+    private val _sumInCorrectAnswer: MutableStateFlow<Int> = MutableStateFlow(0)
+    val sumInCorrectAnswer: StateFlow<Int> get() = _sumInCorrectAnswer.asStateFlow()
+
+    private val _sumCorrectAnswer: MutableStateFlow<Int> = MutableStateFlow(0)
+    val sumCorrectAnswer: StateFlow<Int> get() = _sumCorrectAnswer.asStateFlow()
 
     fun startTimer() {
         countDownTimer?.cancel()
@@ -50,14 +59,22 @@ class MatchViewModel @Inject constructor() : ViewModel() {
         updateQuestion()
     }
 
+    fun updateSumCorrectAnswer() {
+        _sumCorrectAnswer.value = _sumCorrectAnswer.value.plus(1)
+    }
+
+    fun updateSumInCorrectAnswer() {
+        _sumInCorrectAnswer.value = _sumInCorrectAnswer.value.plus(1)
+    }
+
     fun updateQuestion() {
         viewModelScope.launch(Dispatchers.IO) {
-            if(nextQuestion.value == null){
+            if (nextQuestion.value == null) {
                 val question = QuickMath.generateQuestion()
                 _question.emit(question)
                 val nextQuestion = QuickMath.generateQuestion()
                 _nextQuestion.emit(nextQuestion)
-            }else{
+            } else {
                 _question.value = _nextQuestion.value
                 val nextQuestion = QuickMath.generateQuestion()
                 _nextQuestion.emit(nextQuestion)
@@ -69,6 +86,14 @@ class MatchViewModel @Inject constructor() : ViewModel() {
     override fun onCleared() {
         countDownTimer?.cancel()
         super.onCleared()
+    }
+
+    fun resetData() {
+        _sumOfQuestion.value = 0
+        _sumCorrectAnswer.value = 0
+        _sumInCorrectAnswer.value = 0
+        updateQuestion()
+        startTimer()
     }
 
 }

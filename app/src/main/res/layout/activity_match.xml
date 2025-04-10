@@ -1,129 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
-    <LinearLayout
-        android:id="@+id/llHeader"
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="@dimen/dp_8"
-        android:paddingVertical="@dimen/dp_16"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            android:background="@null"
-            android:rotation="180"
-            android:src="@drawable/ic_arrow_forward"
-            android:tint="@color/color_button_back" />
-
-        <com.dhug.quick_math.base.wiget.AppTextViewBold
-            android:text="@string/competition"
-            android:textSize="@dimen/sp_24"
-            android:textColor="@color/colorPrimaryVariant"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <LinearLayout
-        app:layout_constraintTop_toBottomOf="@id/llHeader"
-        android:layout_marginTop="@dimen/dp_8"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
         <LinearLayout
+            android:id="@+id/llHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp_12"
-            android:gravity="center_vertical">
-            <com.dhug.quick_math.base.wiget.AppTextView
-                android:id="@+id/tvSumQuestion"
-                style="@style/TextAutoCommon"
-                tools:text="Câu hỏi số: 23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/dp_8"
+            android:paddingVertical="@dimen/dp_16"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:background="@null"
+                android:rotation="180"
+                android:src="@drawable/ic_arrow_forward"
+                android:tint="@color/color_button_back" />
+
+            <com.dhug.quick_math.base.wiget.AppTextViewBold
+                android:text="@string/competition"
+                android:textSize="@dimen/sp_24"
+                android:textColor="@color/colorPrimaryVariant"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical|end"
-                android:layout_weight="1">
+                android:layout_weight="1" />
+        </LinearLayout>
 
+        <LinearLayout
+            app:layout_constraintTop_toBottomOf="@id/llHeader"
+            android:layout_marginTop="@dimen/dp_8"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_12"
+                android:gravity="center_vertical">
                 <com.dhug.quick_math.base.wiget.AppTextView
-                    android:id="@+id/tvTimer"
+                    android:id="@+id/tvSumQuestion"
                     style="@style/TextAutoCommon"
-                    tools:text="01:00"
-                    android:layout_marginEnd="@dimen/dp_8"
+                    tools:text="Câu hỏi số: 23"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/lavGlassHour"
-                    android:layout_width="@dimen/dp_40"
-                    android:layout_height="@dimen/dp_40"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/glasshour"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|end"
+                    android:layout_weight="1">
 
+                    <com.dhug.quick_math.base.wiget.AppTextView
+                        android:id="@+id/tvTimer"
+                        style="@style/TextAutoCommon"
+                        tools:text="01:00"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lavGlassHour"
+                        android:layout_width="@dimen/dp_40"
+                        android:layout_height="@dimen/dp_40"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/glasshour"/>
+
+                </LinearLayout>
             </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/sbTimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
         </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatSeekBar
-            android:id="@+id/sbTimer"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/llHeader">
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_8"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/llHeader">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp_8"
-            app:cardBackgroundColor="@color/gray_dark_primary"
-            app:cardCornerRadius="@dimen/dp_16">
-
-            <com.dhug.quick_math.base.wiget.AppTextViewBold
-                android:id="@+id/tvQuestion"
-                style="@style/TextWhiteSp24"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:padding="@dimen/dp_32"
-                tools:text="23 + 2 = ?" />
-        </androidx.cardview.widget.CardView>
+                android:layout_marginHorizontal="@dimen/dp_8"
+                app:cardBackgroundColor="@color/gray_dark_primary"
+                app:cardCornerRadius="@dimen/dp_16">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvAnswer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_32"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:itemCount="2"
-            tools:listitem="@layout/item_answer" />
+                <com.dhug.quick_math.base.wiget.AppTextViewBold
+                    android:id="@+id/tvQuestion"
+                    style="@style/TextWhiteSp24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_32"
+                    tools:text="23 + 2 = ?" />
+            </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_32"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_answer" />
+
+        </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

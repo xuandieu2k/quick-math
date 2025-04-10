@@ -7,21 +7,23 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
-import com.dhug.quick_math.data.ads.InterstitialAdManager
-import com.gyf.immersionbar.ImmersionBar
-import com.hjq.bar.TitleBar
+import androidx.lifecycle.lifecycleScope
 import com.dhug.base.BaseAdsActivity
 import com.dhug.base.BaseDialog
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.action.TitleBarAction
 import com.dhug.quick_math.base.ui.dialog.WaitDialog
+import com.dhug.quick_math.data.ads.InterstitialAdManager
 import com.dhug.quick_math.data.ads.OpenAdManager
 import com.dhug.quick_math.presentation.viewmodel.PremiumViewModel
 import com.dhug.quick_math.presentation.viewmodel.RemoteConfigViewModel
 import com.dhug.quick_math.utils.ExtensionUtils
 import com.dhug.quick_math.utils.MMKVUtils
 import com.dhug.quick_math.utils.RemoteConfigConstants
+import com.gyf.immersionbar.ImmersionBar
+import com.hjq.bar.TitleBar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -96,15 +98,17 @@ abstract class AppAdsActivity : BaseAdsActivity(), TitleBarAction {
 
     override fun onResume() {
         super.onResume()
-        InterstitialAdManager.initDialog(this)
-        premiumViewModel.refreshPurchase(
-            onDone = {
-                updateAds()
-            },
-            onError = {
-                updateAds()
-            }
-        )
+        lifecycleScope.launch {
+            InterstitialAdManager.initDialog(this@AppAdsActivity)
+            premiumViewModel.refreshPurchase(
+                onDone = {
+                    updateAds()
+                },
+                onError = {
+                    updateAds()
+                }
+            )
+        }
     }
 
     private fun hasBannerAd(): Boolean {

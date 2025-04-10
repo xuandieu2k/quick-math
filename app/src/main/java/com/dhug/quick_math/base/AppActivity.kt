@@ -3,24 +3,27 @@ package com.dhug.quick_math.base
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
-import android.view.*
+import android.view.MotionEvent
+import android.view.View
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
-import com.dhug.quick_math.data.ads.InterstitialAdManager
-import com.gyf.immersionbar.ImmersionBar
-import com.hjq.bar.TitleBar
-import com.dhug.quick_math.base.ui.dialog.WaitDialog
+import androidx.lifecycle.lifecycleScope
 import com.dhug.base.BaseActivity
 import com.dhug.base.BaseDialog
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.action.TitleBarAction
 import com.dhug.quick_math.base.ui.activity.SplashActivity
+import com.dhug.quick_math.base.ui.dialog.WaitDialog
+import com.dhug.quick_math.data.ads.InterstitialAdManager
 import com.dhug.quick_math.data.ads.OpenAdManager
 import com.dhug.quick_math.presentation.view.activity.PaywallActivity
 import com.dhug.quick_math.presentation.viewmodel.PremiumViewModel
 import com.dhug.quick_math.presentation.viewmodel.RemoteConfigViewModel
 import com.dhug.quick_math.utils.MMKVUtils
+import com.gyf.immersionbar.ImmersionBar
+import com.hjq.bar.TitleBar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -72,14 +75,16 @@ abstract class AppActivity : BaseActivity(), TitleBarAction {
 
     override fun onResume() {
         super.onResume()
-        premiumViewModel.refreshPurchase(
-            onDone = {
-                updateAds()
-            },
-            onError = {
-                updateAds()
-            }
-        )
+        lifecycleScope.launch {
+            premiumViewModel.refreshPurchase(
+                onDone = {
+                    updateAds()
+                },
+                onError = {
+                    updateAds()
+                }
+            )
+        }
     }
 
     private fun updateAds() {

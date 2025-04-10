@@ -22,7 +22,7 @@ interface BillingRepository {
 
     suspend fun savePurchase(purchase: Purchase, productDetails: ProductDetails)
 
-    suspend fun refreshPurchases(onDone: () -> Unit, onError: (Throwable) -> Unit)
+    suspend fun refreshPurchases(onDone: () -> Unit, onError: (ex: Exception) -> Unit)
 
     suspend fun queryAllProductDetails(productIds: List<String>): List<ProductDetails>
     suspend fun queryAllProductDetails(products: Map<String, String>): List<ProductDetails>

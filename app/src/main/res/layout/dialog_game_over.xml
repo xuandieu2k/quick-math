@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border_dialog"
+        android:padding="@dimen/dp_8">
+
+        <com.dhug.quick_math.base.wiget.AppTextViewBold
+            android:id="@+id/tvTitle"
+            style="@style/TextWhiteSp40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/game_over"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_24"
+            android:layout_marginVertical="@dimen/dp_16"
+            android:background="@drawable/bg_border_dialog"
+            android:backgroundTint="#127475"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_4"
+                android:gravity="center">
+
+                <com.dhug.quick_math.base.wiget.AppTextViewBold
+                    style="@style/TextWhiteCommon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/question_" />
+
+                <com.dhug.quick_math.base.wiget.AppTextViewBold
+                    android:id="@+id/tvSumQuestion"
+                    style="@style/TextWhiteCommon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_8"
+                    tools:text="20" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_4"
+                android:gravity="center">
+
+                <com.dhug.quick_math.base.wiget.AppTextViewBold
+                    style="@style/TextWhiteCommon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/highest_question_" />
+
+                <com.dhug.quick_math.base.wiget.AppTextViewBold
+                    android:id="@+id/tvHighestQuestion"
+                    style="@style/TextWhiteCommon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_8"
+                    tools:text="100" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_4"
+                android:gravity="center">
+
+                <com.dhug.quick_math.base.wiget.AppButtonBold
+                    android:id="@+id/btnPlayAgain"
+                    style="@style/TextWhiteCommon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/dp_8"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_button"
+                    android:paddingVertical="@dimen/dp_8"
+                    android:text="@string/play_again" />
+
+                <com.dhug.quick_math.base.wiget.AppButtonBold
+                    android:id="@+id/btnTraining"
+                    style="@style/TextWhiteCommon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/dp_8"
+                    android:layout_marginStart="@dimen/dp_8"
+                    android:layout_weight="1"
+                    android:background="@drawable/ripple_button"
+                    android:paddingVertical="@dimen/dp_8"
+                    android:text="@string/training" />
+            </LinearLayout>
+
+            <com.dhug.quick_math.base.wiget.AppButtonBold
+                android:id="@+id/btnHome"
+                style="@style/TextWhiteCommon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_8"
+                android:background="@drawable/ripple_button"
+                android:paddingVertical="@dimen/dp_16"
+                android:text="@string/home" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

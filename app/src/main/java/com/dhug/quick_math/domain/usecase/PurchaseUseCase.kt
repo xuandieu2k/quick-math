@@ -21,7 +21,7 @@ class PurchaseUseCase @Inject constructor(
         return repository.getAllPurchasedItems()
     }
 
-    suspend fun refreshPurchases(onDone: () -> Unit, onError: (Throwable) -> Unit) {
+    suspend fun refreshPurchases(onDone: () -> Unit, onError: (ex: Exception) -> Unit) {
         repository.refreshPurchases(onDone, onError)
     }
 

@@ -314,6 +314,14 @@ Brother Wheel
     <string name="wrong">Wrong!</string>
     <string name="competition">Competition</string>
     <string name="question">Question:</string>
+    <string name="play_again">Play Again</string>
+    <string name="home">Home</string>
+    <string name="question_">Question:</string>
+    <string name="highest_question_">Highest Question:</string>
+    <string name="game_over">Game over</string>
+    <string name="warning_exit_game">All your current scores will be lost. \nDo you want to exit?</string>
+    <string name="number_of_correct_answers">Number of correct answers</string>
+    <string name="number_of_incorrect_answers">Number of incorrect answers</string>
 
     <!--    -->
 

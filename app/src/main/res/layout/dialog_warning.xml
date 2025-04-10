@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_border_dialog"
+        android:padding="@dimen/dp_8">
+
+        <com.dhug.quick_math.base.wiget.AppTextViewBold
+            android:id="@+id/tvTitle"
+            style="@style/TextWhiteSp40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_warning"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/llContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_24"
+            android:layout_marginVertical="@dimen/dp_16"
+            android:background="@drawable/bg_border_dialog"
+            android:backgroundTint="@color/colorPrimaryVariant"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_16"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <com.dhug.quick_math.base.wiget.AppTextViewBold
+                android:id="@+id/tvContent"
+                style="@style/TextWhiteCommon"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/warning_exit_game" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_4"
+            android:layout_marginHorizontal="@dimen/dp_32"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llContent">
+
+            <com.dhug.quick_math.base.wiget.AppButtonBold
+                android:id="@+id/btnOke"
+                style="@style/TextWhiteCommon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_button"
+                android:paddingVertical="@dimen/dp_8"
+                android:text="@string/ok" />
+
+            <com.dhug.quick_math.base.wiget.AppButtonBold
+                android:id="@+id/btnCancel"
+                style="@style/TextWhiteCommon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/dp_8"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_button"
+                android:paddingVertical="@dimen/dp_8"
+                android:text="@string/common_cancel" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
