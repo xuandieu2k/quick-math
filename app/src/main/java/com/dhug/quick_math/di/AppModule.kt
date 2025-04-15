@@ -1,20 +1,18 @@
 package com.dhug.quick_math.di
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import com.android.billingclient.api.BillingClient
+import com.dhug.quick_math.data.local.dao.PurchasedItemDao
+import com.dhug.quick_math.data.local.dao.ScoreDao
+import com.dhug.quick_math.data.repository.BillingRepositoryImpl
+import com.dhug.quick_math.data.repository.ScoreRepositoryImpl
+import com.dhug.quick_math.domain.repository.BillingRepository
+import com.dhug.quick_math.domain.repository.ScoreRepository
+import com.dhug.quick_math.domain.usecase.PurchaseUseCase
+import com.dhug.quick_math.domain.usecase.ScoreUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.dhug.quick_math.data.local.dao.PurchasedItemDao
-import com.dhug.quick_math.data.repository.BillingRepositoryImpl
-import com.dhug.quick_math.domain.repository.BillingRepository
-import com.dhug.quick_math.domain.usecase.PurchaseUseCase
-import com.dhug.quick_math.helper.NotificationHelper
-import dagger.hilt.android.internal.lifecycle.HiltViewModelFactory
-import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 /**
@@ -39,6 +37,21 @@ object AppModule {
         billingClient: BillingClient, dao: PurchasedItemDao
     ): BillingRepository {
         return BillingRepositoryImpl(billingClient, dao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideScoreUseCase(repository: ScoreRepository): ScoreUseCase {
+        return ScoreUseCase(repository)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideScoreRepository(
+        dao: ScoreDao
+    ): ScoreRepository {
+        return ScoreRepositoryImpl(dao)
     }
 
 

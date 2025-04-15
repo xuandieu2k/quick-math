@@ -6,20 +6,25 @@ import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.AppAdsActivity
 import com.dhug.quick_math.data.local.entities.QuickMath
 import com.dhug.quick_math.databinding.ActivityMatchBinding
 import com.dhug.quick_math.presentation.adapter.AnswerAdapter
 import com.dhug.quick_math.presentation.dialog.GameOverDialog
+import com.dhug.quick_math.presentation.dialog.WarningDialog
 import com.dhug.quick_math.presentation.viewmodel.MatchViewModel
 import com.dhug.quick_math.utils.AppUtils
 import com.dhug.quick_math.utils.DialogUtils
+import com.dhug.quick_math.utils.EnumConstants
 import com.dhug.quick_math.utils.MoneyUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -29,6 +34,10 @@ class MatchActivity : AppAdsActivity() {
 
     @Inject
     lateinit var answerAdapter: AnswerAdapter
+
+    private var dialogOverGame: GameOverDialog.Builder? = null
+    private var dialogWarning: WarningDialog.Builder? = null
+
     override fun onClickAfterAd(view: View) {
         //
     }
@@ -77,13 +86,16 @@ class MatchActivity : AppAdsActivity() {
     override fun observerData() {
         super.observerData()
         lifecycleScope.launch {
-            matchViewModel.question.collectLatest {
-                it?.let {
-                    updateUIWithQuestion(it)
-                    matchViewModel.startTimer()
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                matchViewModel.question.collectLatest { question ->
+                    question?.let {
+                        updateUIWithQuestion(it)
+                        matchViewModel.startTimer()
+                    }
                 }
             }
         }
+
 
         lifecycleScope.launch {
             matchViewModel.sumOfQuestion.collectLatest {
@@ -102,10 +114,12 @@ class MatchActivity : AppAdsActivity() {
     }
 
     private fun showDialogGameOver() {
+        matchViewModel.updateTimeLeftMillisWhenOverGame()
         binding.lavGlassHour.cancelAnimation()
         binding.lavGlassHour.progress = 0f
-
-        DialogUtils.showDialogGameOver(
+        if (dialogOverGame?.isShowing() == true) return
+        matchViewModel.insertData(type = EnumConstants.PlayType.COMPETITION)
+        dialogOverGame = DialogUtils.showDialogGameOver(
             this@MatchActivity,
             matchViewModel.sumOfQuestion.value,
             matchViewModel.highestQuestion.value
@@ -119,15 +133,20 @@ class MatchActivity : AppAdsActivity() {
                 }
             }
         }
+        dialogOverGame?.create()?.show()
     }
 
 
     private fun showDialogWarning() {
-        DialogUtils.showDialogWarning(this) {
+        if (dialogWarning?.isShowing() == true) return
+        dialogWarning = DialogUtils.showDialogWarning(this) {
             if (it) {
                 finish()
+            }else{
+                dialogOverGame?.dismiss()
             }
         }
+        dialogWarning?.create()?.show()
     }
 
     private fun resetGame() {
@@ -151,10 +170,10 @@ class MatchActivity : AppAdsActivity() {
     }
 
     private fun updateSeekBarTimer(
-        millisUntilFinished: Long,
-        totalTimeMillis: Long = matchViewModel.totalTimeMillis.value
+        millisUntilFinished: Long, totalTimeMillis: Long = matchViewModel.totalTimeMillis.value
     ) {
-        val percent = (millisUntilFinished.toFloat() / totalTimeMillis * 100).toInt()
+        val percent = ((millisUntilFinished * 100) / totalTimeMillis).toInt()
+        Timber.tag("Log Seekbar").d("$percent")
         binding.sbTimer.progress = percent
         binding.tvTimer.text = formatTime(millisUntilFinished)
         binding.tvTimer.setTextColor(
@@ -190,5 +209,11 @@ class MatchActivity : AppAdsActivity() {
         when (view) {
             binding.btnBack -> showDialogWarning()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        dialogWarning = null
+        dialogOverGame = null
     }
 }

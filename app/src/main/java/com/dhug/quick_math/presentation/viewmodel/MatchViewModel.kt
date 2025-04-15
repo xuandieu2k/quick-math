@@ -5,16 +5,25 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dhug.quick_math.data.local.entities.QuickMath
 import com.dhug.quick_math.data.local.entities.QuickMath.Question
+import com.dhug.quick_math.data.local.entities.Score
+import com.dhug.quick_math.domain.usecase.ScoreUseCase
+import com.dhug.quick_math.utils.EnumConstants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class MatchViewModel @Inject constructor() : ViewModel() {
+class MatchViewModel @Inject constructor(
+    private val scoreUseCase: ScoreUseCase
+) : ViewModel() {
     private val _question: MutableStateFlow<Question?> = MutableStateFlow(null)
     val question: StateFlow<Question?> get() = _question.asStateFlow()
 
@@ -25,8 +34,8 @@ class MatchViewModel @Inject constructor() : ViewModel() {
     private val _sumOfQuestion: MutableStateFlow<Int> = MutableStateFlow(0)
     val sumOfQuestion: StateFlow<Int> get() = _sumOfQuestion.asStateFlow()
 
-    private val _highestQuestion: MutableStateFlow<Int> = MutableStateFlow(100)
-    val highestQuestion: StateFlow<Int> get() = _highestQuestion.asStateFlow()
+    val highestQuestion =
+        scoreUseCase.getHighestScore().stateIn(viewModelScope, SharingStarted.Lazily, 0)
 
     private val _timeLeftMillis = MutableStateFlow(30 * 1000L)
     val timeLeftMillis: StateFlow<Long> = _timeLeftMillis
@@ -40,6 +49,9 @@ class MatchViewModel @Inject constructor() : ViewModel() {
 
     private val _sumCorrectAnswer: MutableStateFlow<Int> = MutableStateFlow(0)
     val sumCorrectAnswer: StateFlow<Int> get() = _sumCorrectAnswer.asStateFlow()
+
+    private val _totalSpentTimeMillis = MutableStateFlow(0L)
+    val totalSpentTimeMillis: StateFlow<Long> = _totalSpentTimeMillis
 
     fun startTimer() {
         countDownTimer?.cancel()
@@ -57,7 +69,17 @@ class MatchViewModel @Inject constructor() : ViewModel() {
 
     init {
         updateQuestion()
+        viewModelScope.launch {
+            highestQuestion.collectLatest {  }
+        }
     }
+
+    fun updateTimeLeftMillisWhenOverGame() {
+        countDownTimer?.cancel()
+        countDownTimer = null
+//        _timeLeftMillis.value = 0L
+    }
+
 
     fun updateSumCorrectAnswer() {
         _sumCorrectAnswer.value = _sumCorrectAnswer.value.plus(1)
@@ -68,18 +90,23 @@ class MatchViewModel @Inject constructor() : ViewModel() {
     }
 
     fun updateQuestion() {
-        viewModelScope.launch(Dispatchers.IO) {
-            if (nextQuestion.value == null) {
-                val question = QuickMath.generateQuestion()
-                _question.emit(question)
-                val nextQuestion = QuickMath.generateQuestion()
-                _nextQuestion.emit(nextQuestion)
+        viewModelScope.launch {
+            val newQuestion: Question
+            val nextQ: Question
+
+            if (_nextQuestion.value == null) {
+                newQuestion = QuickMath.generateQuestion()
+                nextQ = QuickMath.generateQuestion()
             } else {
-                _question.value = _nextQuestion.value
-                val nextQuestion = QuickMath.generateQuestion()
-                _nextQuestion.emit(nextQuestion)
+                newQuestion = _nextQuestion.value!!
+                nextQ = QuickMath.generateQuestion()
             }
-            _sumOfQuestion.value = _sumOfQuestion.value.plus(1)
+
+            withContext(Dispatchers.Main) {
+                _question.value = newQuestion
+                _nextQuestion.value = nextQ
+                _sumOfQuestion.value = _sumOfQuestion.value + 1
+            }
         }
     }
 
@@ -95,5 +122,24 @@ class MatchViewModel @Inject constructor() : ViewModel() {
         updateQuestion()
         startTimer()
     }
+
+    fun insertData(type: EnumConstants.PlayType = EnumConstants.PlayType.TRAINING) {
+        viewModelScope.launch {
+            scoreUseCase.insert(createScore(type)).collectLatest { }
+        }
+    }
+
+    private fun createScore(type: EnumConstants.PlayType = EnumConstants.PlayType.TRAINING): Score =
+        Score().apply {
+            this.highestAnswer = sumOfQuestion.value
+            this.answerCorrect =
+                if (type == EnumConstants.PlayType.TRAINING) sumCorrectAnswer.value else 0
+            this.answerIncorrect =
+                if (type == EnumConstants.PlayType.TRAINING) sumInCorrectAnswer.value else 0
+
+            this.totalSpentTime = totalSpentTimeMillis.value
+
+            this.type = type
+        }
 
 }

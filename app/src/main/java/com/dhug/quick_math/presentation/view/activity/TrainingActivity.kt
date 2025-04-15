@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.AppAdsActivity
 import com.dhug.quick_math.base.wiget.AppToast
@@ -72,9 +74,12 @@ class TrainingActivity : AppAdsActivity() {
     override fun observerData() {
         super.observerData()
         lifecycleScope.launch {
-            matchViewModel.question.collectLatest {
-                it?.let {
-                    updateUIWithQuestion(it)
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                matchViewModel.question.collectLatest { question ->
+                    question?.let {
+                        updateUIWithQuestion(it)
+                        matchViewModel.startTimer()
+                    }
                 }
             }
         }

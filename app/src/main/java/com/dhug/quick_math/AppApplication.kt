@@ -20,6 +20,7 @@ import com.dhug.quick_math.base.other.TitleBarStyle
 import com.dhug.quick_math.base.other.ToastLogInterceptor
 import com.dhug.quick_math.base.other.ToastStyle
 import com.dhug.quick_math.data.ads.InterstitialAdManager
+import com.dhug.quick_math.data.local.entities.QuickMath
 import com.dhug.quick_math.domain.usecase.PurchaseUseCase
 import com.dhug.quick_math.framework.alarm.AlarmScheduler
 import com.dhug.quick_math.utils.AppConfig
@@ -59,7 +60,7 @@ class AppApplication : Application(), Configuration.Provider {
     @Log("Startup time taken")
     override fun onCreate() {
         super.onCreate()
-        Places.initialize(applicationContext, getString(R.string.google_api_key)) // Search place googleMap
+        QuickMath.init(this)
         FirebaseApp.initializeApp(this)
         initMMKV()
         MMKVUtils.clearExpiredPremiums()

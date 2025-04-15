@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="score"
+            type="com.dhug.quick_math.data.local.entities.Score" />
+
+        <variable
+            name="context"
+            type="android.content.Context" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@drawable/ripple_button"
+        android:gravity="center"
+        android:padding="@dimen/dp_8">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:src="@drawable/ic_reward" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.dhug.quick_math.base.wiget.AppTextView
+                style="@style/TextAutoSp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{score.getQuestionText(context)}"
+                tools:text="Question: 40" />
+
+            <com.dhug.quick_math.base.wiget.AppTextView
+                style="@style/TextAutoSp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@{score.getDateTimeCreated()}"
+                tools:text="Ngày 20 Tháng 01 Năm 2025" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

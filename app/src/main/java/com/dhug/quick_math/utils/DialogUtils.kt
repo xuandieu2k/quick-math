@@ -14,26 +14,22 @@ object DialogUtils {
         sumOfQuestion: Int,
         highestQuestion: Int,
         onDone: (typeActionGameOver: GameOverDialog.Builder.Companion.TypeAction) -> Unit
-    ) {
-        GameOverDialog.Builder(activity, sumOfQuestion, highestQuestion)
-            .setListenerAction(object : GameOverDialog.Builder.OnActionGameOver {
-                override fun onFishActionGameOver(typeActionGameOver: GameOverDialog.Builder.Companion.TypeAction) {
-                    onDone(typeActionGameOver)
-                }
+    ): GameOverDialog.Builder = GameOverDialog.Builder(activity, sumOfQuestion, highestQuestion)
+        .setListenerAction(object : GameOverDialog.Builder.OnActionGameOver {
+            override fun onFishActionGameOver(typeActionGameOver: GameOverDialog.Builder.Companion.TypeAction) {
+                onDone(typeActionGameOver)
+            }
 
-            }).create().show()
-    }
+        })
 
     fun showDialogWarning(
         activity: AppCompatActivity,
         onDone: (isConfirm: Boolean) -> Unit
-    ) {
-        WarningDialog.Builder(activity)
-            .setListenerAction(object : WarningDialog.Builder.OnActionDone {
-                override fun onFinishAction(isConfirm: Boolean) {
-                    onDone(isConfirm)
-                }
+    ): WarningDialog.Builder = WarningDialog.Builder(activity)
+        .setListenerAction(object : WarningDialog.Builder.OnActionDone {
+            override fun onFinishAction(isConfirm: Boolean) {
+                onDone(isConfirm)
+            }
 
-            }).create().show()
-    }
+        })
 }

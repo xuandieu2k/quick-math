@@ -4,7 +4,10 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.dhug.quick_math.data.local.dao.PurchasedItemDao
+import com.dhug.quick_math.data.local.dao.ScoreDao
+import com.dhug.quick_math.data.local.entities.Converters
 import com.dhug.quick_math.data.local.entities.PurchasedItem
+import com.dhug.quick_math.data.local.entities.Score
 
 /**
  * @Author: NGUYEN XUAN DIEU
@@ -12,12 +15,14 @@ import com.dhug.quick_math.data.local.entities.PurchasedItem
  */
 @Database(
     entities = [
-        PurchasedItem::class
+        PurchasedItem::class,
+        Score::class,
     ],
     version = 1
 )
 
-//@TypeConverters(Converters::class)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun purchasedItemDao(): PurchasedItemDao
+    abstract fun scoreDao(): ScoreDao
 }

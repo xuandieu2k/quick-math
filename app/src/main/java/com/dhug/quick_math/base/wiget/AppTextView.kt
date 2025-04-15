@@ -11,7 +11,7 @@ import com.cooldev.base.R
  * @Date: 01 / 05 / 2024
  */
 open class AppTextView : AppCompatTextView {
-    private var typeFont = ResourcesCompat.getFont(context, R.font.goldman_bold)
+    private var typeFont = ResourcesCompat.getFont(context, R.font.goldman_regular)
 
     constructor(context: Context?) : super(context!!) {
         init()

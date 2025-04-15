@@ -43,7 +43,7 @@ class HomeActivity : AppAdsActivity() {
                 startActivity(Intent(this, TrainingActivity::class.java))
             }
             binding.btnAchievements ->{
-
+                startActivity(Intent(this, AchievementsActivity::class.java))
             }
             binding.btnSetting ->{
                 startActivity(Intent(this, SettingActivity::class.java))

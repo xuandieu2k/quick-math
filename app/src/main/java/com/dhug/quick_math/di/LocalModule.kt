@@ -4,14 +4,14 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.dhug.quick_math.data.local.AppDatabase
+import com.dhug.quick_math.data.local.dao.PurchasedItemDao
+import com.dhug.quick_math.data.local.dao.ScoreDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import com.dhug.quick_math.data.local.AppDatabase
-import com.dhug.quick_math.data.local.dao.PurchasedItemDao
-import com.dhug.quick_math.utils.MMKVUtils
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import javax.inject.Singleton
@@ -31,14 +31,14 @@ object LocalModule {
     ): AppDatabase {
 
         val database = Room.databaseBuilder(
-            context, AppDatabase::class.java, "driver_note_database"
+            context, AppDatabase::class.java, "quick_math_database"
         ).addCallback(object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
-                if (MMKVUtils.isFirstTimeCreateDb()) {
-                    executeSqlFile(context, db, "data.sql")
-                    MMKVUtils.setFirstTimeCreateDb(false)
-                }
+//                if (MMKVUtils.isFirstTimeCreateDb()) {
+//                    executeSqlFile(context, db, "data.sql")
+//                    MMKVUtils.setFirstTimeCreateDb(false)
+//                }
             }
         }).build()
 
@@ -70,6 +70,13 @@ object LocalModule {
     @Singleton
     fun providePurchasedItemDao(database: AppDatabase): PurchasedItemDao {
         return database.purchasedItemDao()
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideScoreDao(database: AppDatabase): ScoreDao {
+        return database.scoreDao()
     }
 
 }

@@ -1,9 +1,21 @@
 package com.dhug.quick_math.data.local.entities
 
+import android.annotation.SuppressLint
+import android.content.Context
+import com.dhug.quick_math.R
 import javax.inject.Singleton
 
+@SuppressLint("StaticFieldLeak")
 @Singleton
 object QuickMath {
+
+    private lateinit var _context: Context
+    val context: Context
+        get() = _context
+
+    fun init(appContext: Context) {
+        _context = appContext.applicationContext
+    }
 
     enum class Operation(val symbol: String) {
         ADD("+"), SUB("-"), MUL("×"), DIV("÷")
@@ -35,7 +47,7 @@ object QuickMath {
         val questionText: String = "",
         val options: List<String> = emptyList(),
         val correctIndex: Int = 0,
-        val type: QuestionType  = QuestionType.BASIC,
+        val type: QuestionType = QuestionType.BASIC,
         val level: Level = Level.EASY
     )
 
@@ -58,29 +70,67 @@ object QuickMath {
         val (a, b, result) = generateOperandsAndResult(op, level)
         val options = generateSmartOptions(result)
         val correctIndex = options.indexOf(result)
-        return Question("$a ${op.symbol} $b = ?", options.map { it.toString() }, correctIndex, QuestionType.BASIC, level)
+        return Question(
+            "$a ${op.symbol} $b = ?",
+            options.map { it.toString() },
+            correctIndex,
+            QuestionType.BASIC,
+            level
+        )
     }
 
     // MULTI STEP: e.g., 4 + 3 * 2
     private fun generateMultiStepQuestion(level: Level): Question {
-        while (true) {
-            val a = (1..10).random()
-            val b = (1..10).random()
-            val c = (1..10).random()
+        repeat(50) { // tránh lặp vô hạn
             val op1 = Operation.entries.toTypedArray().random()
             val op2 = Operation.entries.toTypedArray().random()
 
+            val (a, b, c) = generateOperandsForMultiStep(op1, op2)
+
             val result = evalPrecise(a, b, c, op1, op2)
 
-            if (result % 1.0 == 0.0) {
+            if (result % 1.0 == 0.0 && !result.isNaN()) {
                 val finalResult = result.toInt()
                 val expression = "$a ${op1.symbol} $b ${op2.symbol} $c"
                 val options = generateSmartOptions(finalResult)
                 val correctIndex = options.indexOf(finalResult)
-                return Question("$expression = ?", options.map { it.toString() }, correctIndex, QuestionType.MULTI_STEP, level)
+                return Question(
+                    "$expression = ?",
+                    options.map { it.toString() },
+                    correctIndex,
+                    QuestionType.MULTI_STEP,
+                    level
+                )
             }
         }
+
+        // fallback
+        return generateBasicQuestion(level)
     }
+
+    private fun generateOperandsForMultiStep(op1: Operation, op2: Operation): Triple<Int, Int, Int> {
+        val a = (1..10).random()
+        val b = (1..10).random()
+        val c = (1..10).random()
+
+        // nếu phép chia, đảm bảo chia hết
+        return when {
+            op2 == Operation.DIV -> {
+                val bNew = (1..10).random()
+                val cNew = (1..10).random()
+                val bFinal = bNew * cNew
+                Triple(a, bFinal, cNew)
+            }
+            op1 == Operation.DIV -> {
+                val aNew = (1..10).random()
+                val bNew = (1..10).random()
+                val aFinal = aNew * bNew
+                Triple(aFinal, bNew, c)
+            }
+            else -> Triple(a, b, c)
+        }
+    }
+
 
     private fun evalPrecise(a: Int, b: Int, c: Int, op1: Operation, op2: Operation): Double {
         val first: Double
@@ -141,7 +191,13 @@ object QuickMath {
         val question = "__ + $b = $result"
         val options = generateSmartOptions(a)
         val correctIndex = options.indexOf(a)
-        return Question(question, options.map { it.toString() }, correctIndex, QuestionType.FILL_IN_BLANK, level)
+        return Question(
+            question,
+            options.map { it.toString() },
+            correctIndex,
+            QuestionType.FILL_IN_BLANK,
+            level
+        )
     }
 
     // FIND CORRECT ONE
@@ -161,7 +217,7 @@ object QuickMath {
         val correctIndex = allOptions.indexOf(correctExpr)
 
         return Question(
-            questionText = "Chọn biểu thức đúng:",
+            questionText = "${context.getString(R.string.choose_the_correct_expression)}:",
             options = allOptions,
             correctIndex = correctIndex,
             type = QuestionType.FIND_CORRECT_ONE,
@@ -178,14 +234,17 @@ object QuickMath {
                 val ops = listOf("+", "-", "×", "÷").filter { it != parts[1] }
                 "${parts[0]} ${ops.random()} ${parts[2]} = ${parts[4]}"
             }
+
             1 -> {
                 "${parts[2]} ${parts[1]} ${parts[0]} = ${parts[4]}"
             }
+
             2 -> {
                 // Đổi kết quả cho sai
                 val wrongResult = parts[4].toInt() + (-5..5).filter { it != 0 }.random()
                 "${parts[0]} ${parts[1]} ${parts[2]} = $wrongResult"
             }
+
             else -> expr
         }
     }
@@ -265,10 +324,16 @@ object QuickMath {
         val sum = (10..30).random()
         val a = (1 until sum).random()
         val b = sum - a
-        val question = "Tổng hai số là $sum. Một số là $a. Số còn lại là?"
+        val question = "${context.getString(R.string.the_sum_of_two_numbers_is)} $sum. ${context.getString(R.string.one_number_is)} $a. ${context.getString(R.string.the_other_number_is)} ?"
         val options = generateSmartOptions(b)
         val correctIndex = options.indexOf(b)
-        return Question(question, options.map { it.toString() }, correctIndex, QuestionType.REVERSE_CALCULATION, level)
+        return Question(
+            question,
+            options.map { it.toString() },
+            correctIndex,
+            QuestionType.REVERSE_CALCULATION,
+            level
+        )
     }
 
     // Helpers
@@ -287,7 +352,7 @@ object QuickMath {
             Operation.ADD -> a + b
             Operation.SUB -> a - b
             Operation.MUL -> a * b
-            Operation.DIV -> if (b != 0) a / b else 0
+            Operation.DIV -> if (b != 0 && a % b == 0) a / b else 0
         }
     }
 
@@ -298,6 +363,7 @@ object QuickMath {
                     val part2 = calc(b, c, op2)
                     calc(a, part2, op1)
                 }
+
                 else -> {
                     val part1 = calc(a, b, op1)
                     calc(part1, c, op2)
@@ -309,10 +375,9 @@ object QuickMath {
     }
 
     private fun generateRandomExpression(): String {
-        val a = (1..10).random()
-        val b = (1..10).random()
         val op = Operation.entries.toTypedArray().random()
-        return "$a ${op.symbol} $b = ${calc(a, b, op)}"
+        val (a, b, result) = generateOperandsAndResult(op, Level.EASY)
+        return "$a ${op.symbol} $b = $result"
     }
 
     private fun evalExpr(expr: String): Int {
@@ -323,13 +388,15 @@ object QuickMath {
             val a = aStr.toInt()
             val b = bStr.toInt()
             val expected = resultStr.toInt()
-            val actual = calc(a, b, when (opStr) {
-                "+" -> Operation.ADD
-                "-" -> Operation.SUB
-                "×" -> Operation.MUL
-                "÷" -> Operation.DIV
-                else -> return -1
-            })
+            val actual = calc(
+                a, b, when (opStr) {
+                    "+" -> Operation.ADD
+                    "-" -> Operation.SUB
+                    "×" -> Operation.MUL
+                    "÷" -> Operation.DIV
+                    else -> return -1
+                }
+            )
             if (actual == expected) expected else -1
         } catch (e: Exception) {
             -1

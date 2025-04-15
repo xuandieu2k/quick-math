@@ -16,7 +16,7 @@ class SettingActivity : AppAdsActivity() {
     }
 
     override fun initView() {
-        //
+        setOnClickListener(binding.btnBack)
     }
 
     override fun initData() {
@@ -24,4 +24,13 @@ class SettingActivity : AppAdsActivity() {
     }
 
     override fun setAdPosition(): Companion.AdPosition = Companion.AdPosition.BOTTOM
+
+    override fun onClickNormal(view: View) {
+        super.onClickNormal(view)
+        when (view) {
+            binding.btnBack -> {
+                finish()
+            }
+        }
+    }
 }

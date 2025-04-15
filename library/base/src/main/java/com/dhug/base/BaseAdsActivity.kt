@@ -22,19 +22,19 @@ import androidx.core.view.setMargins
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.cooldev.base.R
-import com.google.android.gms.ads.AdSize
+import com.cooldev.base.databinding.ActivityAdsBinding
 import com.dhug.base.action.ActivityAction
 import com.dhug.base.action.BundleAction
 import com.dhug.base.action.ClickAction
 import com.dhug.base.action.HandlerAction
 import com.dhug.base.action.KeyboardAction
-import com.cooldev.base.databinding.ActivityAdsBinding
+import com.google.android.gms.ads.AdSize
 import java.util.Random
 import kotlin.math.pow
 
 abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
     ClickAction, HandlerAction, BundleAction, KeyboardAction {
-    private val binding: ActivityAdsBinding by lazy { ActivityAdsBinding.inflate(layoutInflater) }
+    private val bindingBase: ActivityAdsBinding by lazy { ActivityAdsBinding.inflate(layoutInflater) }
 
     companion object {
 
@@ -125,16 +125,16 @@ abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
     }
 
     fun loadAds() {
-        updateIdBanner()?.let { binding.adView.setAdUnitId(it) }
-        binding.adView.loadAd()
+        updateIdBanner()?.let { bindingBase.adView.setAdUnitId(it) }
+        bindingBase.adView.loadAd()
     }
 
     fun removeAds() {
-        binding.adView.destroyAd()
+        bindingBase.adView.destroyAd()
     }
 
     fun isAdVisible(): Boolean {
-        return binding.adView.isVisible
+        return bindingBase.adView.isVisible
     }
 
     /**
@@ -171,8 +171,8 @@ abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
      * Initialize layout
      */
     protected open fun initLayout() {
-        binding.flMain.addView(getLayoutView())
-        setContentView(binding.root)
+        bindingBase.flMain.addView(getLayoutView())
+        setContentView(bindingBase.root)
         initSoftKeyboard()
     }
 
@@ -182,8 +182,8 @@ abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
     protected abstract fun setAdPosition(): AdPosition
 
     fun showAds(isShow: Boolean) {
-        binding.adView.isVisible = isShow
-        binding.flMain.setPadding(
+        bindingBase.adView.isVisible = isShow
+        bindingBase.flMain.setPadding(
             0,
             0,
             setPaddingWithAd(isShow),
@@ -202,7 +202,7 @@ abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
 
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             if (position == AdPosition.TOP) {
-                binding.adView.layoutParams = ConstraintLayout.LayoutParams(
+                bindingBase.adView.layoutParams = ConstraintLayout.LayoutParams(
                     ConstraintLayout.LayoutParams.MATCH_PARENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                 ).apply {
@@ -210,46 +210,46 @@ abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
                     setMargins(0, resources.getDimension(R.dimen.dp_32).toInt(), 0, 0)
                 }
 
-                binding.flMain.layoutParams = ConstraintLayout.LayoutParams(
+                bindingBase.flMain.layoutParams = ConstraintLayout.LayoutParams(
                     0,
                     0,
                 ).apply {
-                    topToBottom = binding.adView.id
+                    topToBottom = bindingBase.adView.id
                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                     leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID
                     rightToRight = ConstraintLayout.LayoutParams.PARENT_ID
                     setMargins(0)
                 }
-                binding.flMain.setPadding(
+                bindingBase.flMain.setPadding(
                     0,
-                    if (!binding.adView.isVisible) resources.getDimension(R.dimen.dp_32)
+                    if (!bindingBase.adView.isVisible) resources.getDimension(R.dimen.dp_32)
                         .toInt() else 0,
                     0,
                     0
                 )
             } else {
-                binding.adView.layoutParams = ConstraintLayout.LayoutParams(
+                bindingBase.adView.layoutParams = ConstraintLayout.LayoutParams(
                     ConstraintLayout.LayoutParams.MATCH_PARENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                 ).apply {
                     bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                 }
 
-                binding.flMain.layoutParams = ConstraintLayout.LayoutParams(
+                bindingBase.flMain.layoutParams = ConstraintLayout.LayoutParams(
                     0,
                     0
                 ).apply {
                     setMargins(0, 0, 0, 0)
-                    bottomToTop = binding.adView.id
+                    bottomToTop = bindingBase.adView.id
                     topToTop = ConstraintLayout.LayoutParams.PARENT_ID
                     leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID
                     rightToRight = ConstraintLayout.LayoutParams.PARENT_ID
                 }
-                binding.flMain.setPadding(0, 0, 0, 0)
+                bindingBase.flMain.setPadding(0, 0, 0, 0)
             }
         } else if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-            binding.flMain.layoutParams = ConstraintLayout.LayoutParams(
+            bindingBase.flMain.layoutParams = ConstraintLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.MATCH_PARENT,
                 ConstraintLayout.LayoutParams.MATCH_PARENT,
             ).apply {
@@ -260,11 +260,11 @@ abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
             }
 
 
-            binding.adView.layoutParams = ConstraintLayout.LayoutParams(
+            bindingBase.adView.layoutParams = ConstraintLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.MATCH_PARENT,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT
             ).apply {
-                topToTop = binding.flMain.id
+                topToTop = bindingBase.flMain.id
             }
         }
     }
@@ -283,7 +283,7 @@ abstract class BaseAdsActivity : AppCompatActivity(), ActivityAction,
 
     override fun onDestroy() {
         super.onDestroy()
-        binding.adView.destroyAd()
+        bindingBase.adView.destroyAd()
         removeCallbacks()
     }
 

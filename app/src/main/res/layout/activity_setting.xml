@@ -25,53 +25,201 @@
             android:tint="@color/color_button_back" />
 
         <com.dhug.quick_math.base.wiget.AppTextViewBold
-            android:text="@string/setting"
-            android:textSize="@dimen/sp_24"
-            android:textColor="@color/colorPrimaryVariant"
-            android:gravity="center"
-            android:layout_gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/setting"
+            android:textColor="@color/colorPrimaryVariant"
+            android:textSize="@dimen/sp_24" />
     </LinearLayout>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="@dimen/dp_8"-->
-<!--        android:gravity="center"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/llHeader">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/dp_8"
+        android:paddingVertical="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@id/llHeader">
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginHorizontal="@dimen/dp_8"-->
-<!--            app:cardBackgroundColor="@color/gray_dark_primary"-->
-<!--            app:cardCornerRadius="@dimen/dp_16">-->
+        <com.dhug.quick_math.base.wiget.AppTextViewBold
+            style="@style/TextAutoCommon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/general" />
 
-<!--            <com.dhug.quick_math.base.wiget.AppTextViewBold-->
-<!--                android:id="@+id/tvQuestion"-->
-<!--                style="@style/TextWhiteSp24"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:gravity="center"-->
-<!--                android:padding="@dimen/dp_32"-->
-<!--                tools:text="23 + 2 = ?" />-->
-<!--        </androidx.cardview.widget.CardView>-->
+        <LinearLayout
+            android:id="@+id/btnLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_8"
+            android:background="@drawable/ripple_button"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/dp_8">
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rvAnswer"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginHorizontal="@dimen/dp_16"-->
-<!--            android:layout_marginTop="@dimen/dp_32"-->
-<!--            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
-<!--            tools:itemCount="2"-->
-<!--            tools:listitem="@layout/item_answer" />-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:src="@drawable/ic_flag_vn" />
 
-<!--    </LinearLayout>-->
+            <com.dhug.quick_math.base.wiget.AppTextViewBold
+                style="@style/TextAutoSp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/language"
+                android:textColor="@color/color_text_button_home" />
+        </LinearLayout>
+
+        <com.dhug.quick_math.base.wiget.AppButtonBold
+            android:id="@+id/btnPrivacyPolicy"
+            style="@style/TextAutoSp12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_8"
+            android:background="@drawable/ripple_button"
+            android:paddingVertical="@dimen/dp_16"
+            android:text="@string/privacy"
+            android:textColor="@color/color_text_button_home" />
+
+        <com.dhug.quick_math.base.wiget.AppButtonBold
+            android:id="@+id/btnReviewApp"
+            style="@style/TextAutoSp12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_8"
+            android:background="@drawable/ripple_button"
+            android:paddingVertical="@dimen/dp_16"
+            android:text="@string/review_app"
+            android:textColor="@color/color_text_button_home" />
+
+        <com.dhug.quick_math.base.wiget.AppButtonBold
+            android:id="@+id/btnShareApp"
+            style="@style/TextAutoSp12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_8"
+            android:background="@drawable/ripple_button"
+            android:paddingVertical="@dimen/dp_16"
+            android:text="@string/share_app"
+            android:textColor="@color/color_text_button_home" />
+
+        <com.dhug.quick_math.base.wiget.AppTextViewBold
+            style="@style/TextAutoCommon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/other" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_8"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/dp_4">
+
+            <com.dhug.quick_math.base.wiget.AppTextViewBold
+                style="@style/TextAutoSp12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:layout_weight="1"
+                android:text="@string/question_answering_time" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/TextWhiteSp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:background="@drawable/bg_gray_rounded_8_dp"
+                android:backgroundTint="@color/green_primary"
+                android:minEms="2"
+                android:paddingHorizontal="@dimen/dp_16"
+                android:paddingVertical="@dimen/dp_8"
+                tools:text="89" />
+
+            <com.dhug.quick_math.base.wiget.AppTextViewBold
+                style="@style/TextAutoSp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/second" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_4"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/dp_4">
+
+            <com.dhug.quick_math.base.wiget.AppTextViewBold
+                style="@style/TextAutoSp12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:layout_weight="1"
+                android:text="@string/save_data_training" />
+
+            <androidx.appcompat.widget.AppCompatToggleButton
+                style="@style/TextWhiteSp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:button="@drawable/bg_switch_button"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="@dimen/dp_8"-->
+    <!--        android:gravity="center"-->
+    <!--        android:orientation="vertical"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/llHeader">-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginHorizontal="@dimen/dp_8"-->
+    <!--            app:cardBackgroundColor="@color/gray_dark_primary"-->
+    <!--            app:cardCornerRadius="@dimen/dp_16">-->
+
+    <!--            <com.dhug.quick_math.base.wiget.AppTextViewBold-->
+    <!--                android:id="@+id/tvQuestion"-->
+    <!--                style="@style/TextWhiteSp24"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:gravity="center"-->
+    <!--                android:padding="@dimen/dp_32"-->
+    <!--                tools:text="23 + 2 = ?" />-->
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <androidx.recyclerview.widget.RecyclerView-->
+    <!--            android:id="@+id/rvAnswer"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginHorizontal="@dimen/dp_16"-->
+    <!--            android:layout_marginTop="@dimen/dp_32"-->
+    <!--            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+    <!--            tools:itemCount="2"-->
+    <!--            tools:listitem="@layout/item_answer" />-->
+
+    <!--    </LinearLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

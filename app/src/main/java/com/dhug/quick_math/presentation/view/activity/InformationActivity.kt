@@ -14,6 +14,7 @@ class InformationActivity : AppAdsActivity() {
         binding = ActivityInformationBinding.inflate(layoutInflater)
         return binding.root
     }
+
     override fun initView() {
         setOnClickListener(binding.btnBack)
     }
@@ -23,4 +24,13 @@ class InformationActivity : AppAdsActivity() {
     }
 
     override fun setAdPosition(): Companion.AdPosition = Companion.AdPosition.BOTTOM
+
+    override fun onClickNormal(view: View) {
+        super.onClickNormal(view)
+        when (view) {
+            binding.btnBack -> {
+                finish()
+            }
+        }
+    }
 }

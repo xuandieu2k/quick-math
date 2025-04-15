@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import com.dhug.base.BaseDialog
 import com.dhug.base.action.AnimAction
+import com.dhug.quick_math.R
 import com.dhug.quick_math.databinding.DialogGameOverBinding
 import com.dhug.quick_math.utils.MoneyUtils
 
@@ -47,8 +48,11 @@ class GameOverDialog {
         }
 
         private fun setUpView() {
-            binding.tvSumQuestion.text = MoneyUtils.formatBigDecimal(sumOfQuestion.toBigDecimal())
-            binding.tvHighestQuestion.text = MoneyUtils.formatBigDecimal(highestQuestion.toBigDecimal())
+            binding.tvHighestQuestion.text = if (sumOfQuestion < highestQuestion) getString(R.string.highest_question_) else getString(R.string.new_highest_question_)
+                binding.tvSumQuestion.text =
+                    MoneyUtils.formatBigDecimal(sumOfQuestion.toBigDecimal())
+            binding.tvHighestQuestion.text =
+                if (sumOfQuestion < highestQuestion) MoneyUtils.formatBigDecimal(highestQuestion.toBigDecimal()) else MoneyUtils.formatBigDecimal(sumOfQuestion.toBigDecimal())
         }
 
         private fun setActionView() {
