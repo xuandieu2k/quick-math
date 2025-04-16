@@ -6,6 +6,8 @@ import javax.inject.Singleton
 object
 AppConstants {
 
+    const val URL_POLICY = "https://www.freeprivacypolicy.com/live/1f97dc6c-2539-4ecc-910d-20116ad66ff0"
+
     enum class PaymentType {
         FREE_TRIAL,
         MONTHLY,

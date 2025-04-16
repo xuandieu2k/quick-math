@@ -1,5 +1,6 @@
 package com.dhug.quick_math.base
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -15,9 +16,12 @@ import com.dhug.quick_math.base.action.TitleBarAction
 import com.dhug.quick_math.base.ui.dialog.WaitDialog
 import com.dhug.quick_math.data.ads.InterstitialAdManager
 import com.dhug.quick_math.data.ads.OpenAdManager
+import com.dhug.quick_math.data.local.entities.QuickMath
+import com.dhug.quick_math.presentation.viewmodel.LanguageViewModel
 import com.dhug.quick_math.presentation.viewmodel.PremiumViewModel
 import com.dhug.quick_math.presentation.viewmodel.RemoteConfigViewModel
 import com.dhug.quick_math.utils.ExtensionUtils
+import com.dhug.quick_math.utils.LanguageManager
 import com.dhug.quick_math.utils.MMKVUtils
 import com.dhug.quick_math.utils.RemoteConfigConstants
 import com.gyf.immersionbar.ImmersionBar
@@ -46,9 +50,16 @@ abstract class AppAdsActivity : BaseAdsActivity(), TitleBarAction {
 
     val remoteConfigViewModel: RemoteConfigViewModel by viewModels()
     val premiumViewModel: PremiumViewModel by viewModels()
+    val languageViewModel: LanguageViewModel by viewModels()
+
+    override fun attachBaseContext(newBase: Context) {
+        val languageCode = MMKVUtils.getLanguage()
+        super.attachBaseContext(LanguageManager.setLocale(newBase, languageCode))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        QuickMath.init(this)
         if (MMKVUtils.areAnyPremiumsActive()) {
             removeAds()
             showAds(false)
@@ -144,7 +155,7 @@ abstract class AppAdsActivity : BaseAdsActivity(), TitleBarAction {
     }
 
     private fun reOpenAds() {
-        if (InterstitialAdManager.getInterstitialAd() == null ) { // && this !is OnboardingActivity
+        if (InterstitialAdManager.getInterstitialAd() == null) { // && this !is OnboardingActivity
             InterstitialAdManager.initialize(
                 this.application, MMKVUtils.getRemoteConfig().maxInterAdsCount.toInt(),
                 MMKVUtils.getRemoteConfig().interstitialInterval
@@ -190,7 +201,6 @@ abstract class AppAdsActivity : BaseAdsActivity(), TitleBarAction {
 //                ) else InterstitialAdManager.stopAdControl()
             }
         }
-
         // Lấy dữ liệu Remote Config
         remoteConfigViewModel.refreshConfig()
     }

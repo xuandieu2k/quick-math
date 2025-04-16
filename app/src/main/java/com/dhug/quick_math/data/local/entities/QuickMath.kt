@@ -14,7 +14,7 @@ object QuickMath {
         get() = _context
 
     fun init(appContext: Context) {
-        _context = appContext.applicationContext
+        _context = appContext
     }
 
     enum class Operation(val symbol: String) {
@@ -108,7 +108,10 @@ object QuickMath {
         return generateBasicQuestion(level)
     }
 
-    private fun generateOperandsForMultiStep(op1: Operation, op2: Operation): Triple<Int, Int, Int> {
+    private fun generateOperandsForMultiStep(
+        op1: Operation,
+        op2: Operation
+    ): Triple<Int, Int, Int> {
         val a = (1..10).random()
         val b = (1..10).random()
         val c = (1..10).random()
@@ -121,12 +124,14 @@ object QuickMath {
                 val bFinal = bNew * cNew
                 Triple(a, bFinal, cNew)
             }
+
             op1 == Operation.DIV -> {
                 val aNew = (1..10).random()
                 val bNew = (1..10).random()
                 val aFinal = aNew * bNew
                 Triple(aFinal, bNew, c)
             }
+
             else -> Triple(a, b, c)
         }
     }
@@ -324,7 +329,10 @@ object QuickMath {
         val sum = (10..30).random()
         val a = (1 until sum).random()
         val b = sum - a
-        val question = "${context.getString(R.string.the_sum_of_two_numbers_is)} $sum. ${context.getString(R.string.one_number_is)} $a. ${context.getString(R.string.the_other_number_is)} ?"
+        val question =
+            "${context.getString(R.string.the_sum_of_two_numbers_is)} $sum. ${context.getString(R.string.one_number_is)} $a. ${
+                context.getString(R.string.the_other_number_is)
+            } ?"
         val options = generateSmartOptions(b)
         val correctIndex = options.indexOf(b)
         return Question(

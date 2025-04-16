@@ -7,6 +7,7 @@ import com.dhug.quick_math.data.repository.BillingRepositoryImpl
 import com.dhug.quick_math.data.repository.ScoreRepositoryImpl
 import com.dhug.quick_math.domain.repository.BillingRepository
 import com.dhug.quick_math.domain.repository.ScoreRepository
+import com.dhug.quick_math.domain.usecase.LanguageUseCase
 import com.dhug.quick_math.domain.usecase.PurchaseUseCase
 import com.dhug.quick_math.domain.usecase.ScoreUseCase
 import dagger.Module
@@ -52,6 +53,13 @@ object AppModule {
         dao: ScoreDao
     ): ScoreRepository {
         return ScoreRepositoryImpl(dao)
+    }
+
+
+    @Provides
+    @Singleton
+    fun provideLanguageUseCase(): LanguageUseCase {
+        return LanguageUseCase()
     }
 
 

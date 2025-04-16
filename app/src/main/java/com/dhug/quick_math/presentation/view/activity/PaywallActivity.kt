@@ -13,7 +13,6 @@ import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.dhug.base.BaseConstants
 import com.dhug.quick_math.R
-import dagger.hilt.android.AndroidEntryPoint
 import com.dhug.quick_math.base.AppActivity
 import com.dhug.quick_math.base.wiget.AppToast
 import com.dhug.quick_math.data.local.entities.PaywallItem
@@ -31,23 +30,10 @@ import com.dhug.quick_math.utils.PayWallConstants
 import com.dhug.quick_math.utils.Resource
 import com.dhug.quick_math.utils.SecurityUtils
 import com.google.gson.GsonBuilder
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import kotlin.apply
-import kotlin.collections.filter
-import kotlin.collections.first
-import kotlin.collections.firstOrNull
-import kotlin.collections.forEach
-import kotlin.collections.isNotEmpty
-import kotlin.collections.toMutableList
-import kotlin.let
-import kotlin.text.contains
-import kotlin.text.ifEmpty
-import kotlin.text.replace
-import kotlin.text.substring
-import kotlin.text.toInt
-import kotlin.toBigDecimal
 
 
 @AndroidEntryPoint
@@ -588,11 +574,7 @@ class PaywallActivity : AppActivity(), PaywallAdapter.OnClickItem {
     override fun onClick(view: View) {
         when (view) {
             binding.btnClose -> {
-                if (MMKVUtils.isSkipFlowAddCarAndLocation()) {
-                    finish()
-                } else {
-                    //
-                }
+                //
             }
         }
     }

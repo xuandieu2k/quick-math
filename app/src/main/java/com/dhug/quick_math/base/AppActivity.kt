@@ -1,5 +1,6 @@
 package com.dhug.quick_math.base
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
@@ -16,9 +17,12 @@ import com.dhug.quick_math.base.ui.activity.SplashActivity
 import com.dhug.quick_math.base.ui.dialog.WaitDialog
 import com.dhug.quick_math.data.ads.InterstitialAdManager
 import com.dhug.quick_math.data.ads.OpenAdManager
+import com.dhug.quick_math.data.local.entities.QuickMath
 import com.dhug.quick_math.presentation.view.activity.PaywallActivity
+import com.dhug.quick_math.presentation.viewmodel.LanguageViewModel
 import com.dhug.quick_math.presentation.viewmodel.PremiumViewModel
 import com.dhug.quick_math.presentation.viewmodel.RemoteConfigViewModel
+import com.dhug.quick_math.utils.LanguageManager
 import com.dhug.quick_math.utils.MMKVUtils
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
@@ -52,6 +56,12 @@ abstract class AppActivity : BaseActivity(), TitleBarAction {
 
     val remoteConfigViewModel: RemoteConfigViewModel by viewModels()
     val premiumViewModel: PremiumViewModel by viewModels()
+    val languageViewModel: LanguageViewModel by viewModels()
+
+    override fun attachBaseContext(newBase: Context) {
+        val languageCode = MMKVUtils.getLanguage()
+        super.attachBaseContext(LanguageManager.setLocale(newBase, languageCode))
+    }
 
     /**
      * Is Has Interstitial Ad
@@ -60,6 +70,7 @@ abstract class AppActivity : BaseActivity(), TitleBarAction {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        QuickMath.init(this)
         if (MMKVUtils.areAnyPremiumsActive()) {
             return
         }

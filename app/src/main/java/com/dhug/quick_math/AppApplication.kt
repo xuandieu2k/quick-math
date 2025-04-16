@@ -60,7 +60,6 @@ class AppApplication : Application(), Configuration.Provider {
     @Log("Startup time taken")
     override fun onCreate() {
         super.onCreate()
-        QuickMath.init(this)
         FirebaseApp.initializeApp(this)
         initMMKV()
         MMKVUtils.clearExpiredPremiums()

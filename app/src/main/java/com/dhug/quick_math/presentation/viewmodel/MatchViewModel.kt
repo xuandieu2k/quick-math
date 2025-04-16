@@ -70,7 +70,7 @@ class MatchViewModel @Inject constructor(
     init {
         updateQuestion()
         viewModelScope.launch {
-            highestQuestion.collectLatest {  }
+            highestQuestion.collectLatest { }
         }
     }
 

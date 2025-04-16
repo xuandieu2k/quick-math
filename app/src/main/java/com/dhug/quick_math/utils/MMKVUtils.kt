@@ -1,34 +1,26 @@
 package com.dhug.quick_math.utils
 
 import com.dhug.quick_math.data.local.entities.RemoteConfig
+import com.dhug.quick_math.data.local.entities.Setting
 import com.google.gson.Gson
-import com.tencent.mmkv.MMKV
 import com.google.gson.GsonBuilder
+import com.tencent.mmkv.MMKV
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import timber.log.Timber
 import javax.inject.Singleton
 
 @Singleton
 object MMKVUtils {
     private const val IS_SKIP_INTRO = "IS_SKIP_INTRO"
-    private const val IS_FIRST_LOSING_DATA = "IS_FIRST_LOSING_DATA"
-    private const val IS_FIRST_FILE_NOT_LOST = "IS_FIRST_FILE_NOT_LOST"
-    private const val IS_SKIP_PRIVACY = "IS_SKIP_PRIVACY"
-    private const val IS_FIRST_PERMISSION = "IS_FIRST_PERMISSION"
-    private const val TRACKING_SETTING_OBJECT = "TRACKING_SETTING_OBJECT"
-    private const val LOCATION_OBJECT = "LOCATION_OBJECT"
     private const val REMOTE_CONFIG_OBJECT = "REMOTE_CONFIG_OBJECT"
+    private const val SETTING_OBJECT = "SETTING_OBJECT"
     private const val PREMIUM_STATUS = "premium_status_"
     private const val IS_SHOW_DIALOG_PREMIUM = "IS_SHOW_DIALOG_PREMIUM"
 
     private const val IS_FIRST_TIME_CREATE_DB = "IS_FIRST_TIME_CREATE_DB"
-
-    private const val IS_SKIP_ADD_CAR_LOCATION = "IS_SKIP_ADD_CAR_LOCATION"
-    private const val IS_SKIP_NOT_FOUND_NOTI = "IS_SKIP_NOT_FOUND_NOTI"
-    private const val IS_SKIP_FOUND_NOTI = "IS_SKIP_FOUND_NOTI"
-    private const val COUNT_SHOW_NOTIFICATION_ADD_REMINDER = "COUNT_SHOW_NOTIFICATION_ADD_REMINDER"
-
-    private const val IS_FIRST_CREATE_VEHICLE = "IS_FIRST_CREATE_VEHICLE"
-    private const val IS_FIRST_ACCESS_HOME_AC = "IS_FIRST_ACCESS_HOME_AC"
+    private const val LANGUAGE_CODE = "LANGUAGE_CODE"
 
     /**
      * 292 triệu năm kể từ Unix epoch (năm 1970)
@@ -43,56 +35,37 @@ object MMKVUtils {
         return mmkv.decodeBool(IS_SKIP_INTRO)
     }
 
-    fun setSkipIntro(isSkip: Boolean) {
-        mmkv.encode(IS_SKIP_INTRO, isSkip)
+
+    private val _languageFlow = MutableStateFlow(
+        mmkv.getString(LANGUAGE_CODE, LanguageConstants.VN) ?: LanguageConstants.VN
+    )
+    val languageFlow: StateFlow<String> = _languageFlow.asStateFlow()
+
+
+    private val _settingFlow = MutableStateFlow(getCurrentSetting())
+    val settingFlow: StateFlow<Setting> = _settingFlow.asStateFlow()
+
+    fun setLanguage(code: String) {
+        mmkv.putString(LANGUAGE_CODE, code)
+        _languageFlow.value = code
     }
 
-    fun isSkipFlowAddCarAndLocation(): Boolean {
-        return mmkv.decodeBool(IS_SKIP_ADD_CAR_LOCATION)
+    fun getLanguage(): String =
+        mmkv.getString(LANGUAGE_CODE, LanguageConstants.VN) ?: LanguageConstants.VN
+
+    fun saveSetting(setting: Setting) {
+        val jsonSetting = Gson().toJson(setting)
+        mmkv.encode(SETTING_OBJECT, jsonSetting)
+        _settingFlow.value = setting
     }
 
-    fun setSkipFlowAddCarAndLocation(isSkip: Boolean) {
-        mmkv.encode(IS_SKIP_ADD_CAR_LOCATION, isSkip)
-    }
-
-    fun numberOfClickNotification(): Int {
-        return mmkv.decodeInt(COUNT_SHOW_NOTIFICATION_ADD_REMINDER)
-    }
-
-    fun setNumberOfClickNotification(number: Int) {
-        mmkv.encode(COUNT_SHOW_NOTIFICATION_ADD_REMINDER, number)
-    }
-
-    fun isFirstsAccessHome(): Boolean {
-        return mmkv.decodeBool(IS_FIRST_ACCESS_HOME_AC)
-    }
-
-    fun setFirstsAccessHome(isFirst: Boolean) {
-        mmkv.encode(IS_FIRST_ACCESS_HOME_AC, isFirst)
-    }
-
-    fun isFirstsCreateVehicle(): Boolean {
-        return mmkv.decodeBool(IS_FIRST_CREATE_VEHICLE)
-    }
-
-    fun setFirstsCreateVehicle(isFirst: Boolean) {
-        mmkv.encode(IS_FIRST_CREATE_VEHICLE, isFirst)
-    }
-
-    fun isSkipNotFoundNotify(): Boolean {
-        return mmkv.decodeBool(IS_SKIP_NOT_FOUND_NOTI)
-    }
-
-    fun setSkipNotFoundNotify(isFlag: Boolean) {
-        mmkv.encode(IS_SKIP_NOT_FOUND_NOTI, isFlag)
-    }
-
-    fun isSkipFoundNotify(): Boolean {
-        return mmkv.decodeBool(IS_SKIP_FOUND_NOTI)
-    }
-
-    fun setSkipFoundNotify(isFlag: Boolean) {
-        mmkv.encode(IS_SKIP_FOUND_NOTI, isFlag)
+    fun getCurrentSetting(): Setting {
+        val strLocation = mmkv.decodeString(SETTING_OBJECT)
+        return if (strLocation != null) {
+            Gson().fromJson(strLocation, Setting::class.java)
+        } else {
+            Setting()
+        }
     }
 
 
