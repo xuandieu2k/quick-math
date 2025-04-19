@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.res.ResourcesCompat
-import com.cooldev.base.R
+import com.dhug.base.R
 
 /**
  * @Author: NGUYEN XUAN DIEU

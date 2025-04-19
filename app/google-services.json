@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "80670992583",
+    "project_id": "quick-6bb3a",
+    "storage_bucket": "quick-6bb3a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80670992583:android:bc2c4122a750950621f6e2",
+        "android_client_info": {
+          "package_name": "com.dhug.quick_math"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPmeCsqe5A8rVH8SrqN-XPLOzrKOtHQww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

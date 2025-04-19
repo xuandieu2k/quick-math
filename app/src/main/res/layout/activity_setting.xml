@@ -137,6 +137,7 @@
                 android:background="@drawable/bg_gray_rounded_8_dp"
                 android:backgroundTint="@color/green_primary"
                 android:minEms="2"
+                android:inputType="number"
                 android:paddingHorizontal="@dimen/dp_16"
                 android:paddingVertical="@dimen/dp_8"
                 tools:text="89" />

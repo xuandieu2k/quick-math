@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "vn.cooldev.wiget"
+    namespace = "com.dhug.wiget"
     compileSdk = 34
 
     defaultConfig {

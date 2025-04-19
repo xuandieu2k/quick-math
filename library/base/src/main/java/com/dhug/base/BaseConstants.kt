@@ -1,6 +1,6 @@
 package com.dhug.base
 
-import com.cooldev.base.BuildConfig
+import com.dhug.base.BuildConfig
 
 /**
  * @Author: NGUYEN XUAN DIEU

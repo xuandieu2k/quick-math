@@ -17,4 +17,12 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingViewModel @Inject constructor() : ViewModel() {
     val settingCurrent = MMKVUtils.settingFlow
+
+    fun updateSetting(seconds: Int) {
+        MMKVUtils.saveSetting(
+            MMKVUtils.getCurrentSetting().apply {
+                secondTime = seconds
+            }
+        )
+    }
 }

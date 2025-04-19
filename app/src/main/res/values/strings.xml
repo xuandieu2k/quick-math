@@ -330,6 +330,9 @@ Brother Wheel
     <string name="question_answering_time">Question answering time</string>
     <string name="save_data_training">Save data training</string>
     <string name="warning">Warning</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="usa">Tiếng Anh</string>
+    <string name="number_range_invalid">Number range invalid(Valid: 5 - 120)</string>
 
     <!--    -->
 

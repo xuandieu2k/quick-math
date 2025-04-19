@@ -21,8 +21,8 @@ import androidx.core.view.isVisible
 import androidx.core.view.setMargins
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import com.cooldev.base.R
-import com.cooldev.base.databinding.ActivityAdsBinding
+import com.dhug.base.R
+import com.dhug.base.databinding.ActivityAdsBinding
 import com.dhug.base.action.ActivityAction
 import com.dhug.base.action.BundleAction
 import com.dhug.base.action.ClickAction

@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
-import com.cooldev.base.R
+import com.dhug.base.R
 import com.dhug.base.action.ActivityAction
 import com.dhug.base.action.AnimAction
 import com.dhug.base.action.ClickAction

@@ -96,8 +96,8 @@
 }
 
 # Retain necessary classes
--keep class com.cooldev.base.** { *; }
--dontwarn com.cooldev.base.**
+-keep class com.dhug.base.** { *; }
+-dontwarn com.dhug.base.**
 -keep class com.google.android.gms.internal.ads.** { *; }
 -dontwarn android.media.LoudnessCodecController$OnLoudnessCodecUpdateListener
 -dontwarn android.media.LoudnessCodecController

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cooldev.base"
+    namespace = "com.dhug.base"
     compileSdk = 34
 
     defaultConfig {

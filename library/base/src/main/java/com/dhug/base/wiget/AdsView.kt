@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.dhug.base.BaseConstants
-import com.cooldev.base.databinding.AdsViewBinding
+import com.dhug.base.databinding.AdsViewBinding
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.AdListener

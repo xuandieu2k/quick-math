@@ -8,6 +8,7 @@ import com.dhug.quick_math.data.local.entities.QuickMath.Question
 import com.dhug.quick_math.data.local.entities.Score
 import com.dhug.quick_math.domain.usecase.ScoreUseCase
 import com.dhug.quick_math.utils.EnumConstants
+import com.dhug.quick_math.utils.MMKVUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,11 +38,11 @@ class MatchViewModel @Inject constructor(
     val highestQuestion =
         scoreUseCase.getHighestScore().stateIn(viewModelScope, SharingStarted.Lazily, 0)
 
-    private val _timeLeftMillis = MutableStateFlow(30 * 1000L)
+    private val _timeLeftMillis = MutableStateFlow(MMKVUtils.getCurrentSetting().secondTime * 1000L)
     val timeLeftMillis: StateFlow<Long> = _timeLeftMillis
 
     private var countDownTimer: CountDownTimer? = null
-    private val _totalTimeMillis = MutableStateFlow(30 * 1000L)
+    private val _totalTimeMillis = MutableStateFlow(MMKVUtils.getCurrentSetting().secondTime * 1000L)
     val totalTimeMillis: StateFlow<Long> = _totalTimeMillis
 
     private val _sumInCorrectAnswer: MutableStateFlow<Int> = MutableStateFlow(0)

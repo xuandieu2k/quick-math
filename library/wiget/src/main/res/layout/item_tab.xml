@@ -6,7 +6,7 @@
 
         <variable
             name="tab"
-            type="vn.cooldev.wiget.model.Tab" />
+            type="com.dhug.wiget.model.Tab" />
 
     </data>
 

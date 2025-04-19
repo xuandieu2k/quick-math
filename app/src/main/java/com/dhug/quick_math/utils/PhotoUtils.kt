@@ -81,7 +81,7 @@ object PhotoUtils {
                     ).centerCrop().transform(
                         MultiTransformation(
                             RoundedCorners(
-                                view.context.resources.getDimension(com.cooldev.base.R.dimen.dp_8)
+                                view.context.resources.getDimension(com.dhug.base.R.dimen.dp_8)
                                     .toInt()
                             )
                         ),
@@ -95,7 +95,7 @@ object PhotoUtils {
                 ).diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().transform(
                     MultiTransformation(
                         RoundedCorners(
-                            view.context.resources.getDimension(com.cooldev.base.R.dimen.dp_8)
+                            view.context.resources.getDimension(com.dhug.base.R.dimen.dp_8)
                                 .toInt()
                         )
                     )
@@ -103,7 +103,7 @@ object PhotoUtils {
                     RequestOptions().centerCrop().transform(
                         MultiTransformation(
                             RoundedCorners(
-                                view.context.resources.getDimension(com.cooldev.base.R.dimen.dp_8)
+                                view.context.resources.getDimension(com.dhug.base.R.dimen.dp_8)
                                     .toInt()
                             )
                         ),
@@ -121,7 +121,7 @@ object PhotoUtils {
                 ).centerCrop().transform(
                     MultiTransformation(
                         RoundedCorners(
-                            view.context.resources.getDimension(com.cooldev.base.R.dimen.dp_8)
+                            view.context.resources.getDimension(com.dhug.base.R.dimen.dp_8)
                                 .toInt()
                         )
                     )
@@ -134,14 +134,14 @@ object PhotoUtils {
             ).diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop().transform(
                 MultiTransformation(
                     RoundedCorners(
-                        view.context.resources.getDimension(com.cooldev.base.R.dimen.dp_8).toInt()
+                        view.context.resources.getDimension(com.dhug.base.R.dimen.dp_8).toInt()
                     )
                 )
             ).apply(
                 RequestOptions().centerCrop().transform(
                     MultiTransformation(
                         RoundedCorners(
-                            view.context.resources.getDimension(com.cooldev.base.R.dimen.dp_8)
+                            view.context.resources.getDimension(com.dhug.base.R.dimen.dp_8)
                                 .toInt()
                         )
                     )

@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
-import com.cooldev.base.R
+import com.dhug.base.R
 
 class AppTextViewExtraBold  : AppCompatTextView {
     private var typeFont = ResourcesCompat.getFont(context, R.font.plus_jakarta_sans_extra_bold)

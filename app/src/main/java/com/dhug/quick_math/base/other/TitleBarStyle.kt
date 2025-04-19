@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.hjq.bar.style.LightBarStyle
 import com.dhug.quick_math.R
 import com.dhug.quick_math.base.wiget.AppTextView
-import vn.cooldev.wiget.wiget.PressAlphaTextView
+import com.dhug.wiget.wiget.PressAlphaTextView
 
 /**
  * @Author: NGUYEN XUAN DIEU
@@ -45,34 +45,34 @@ class TitleBarStyle : LightBarStyle() {
     }
 
     override fun getChildHorizontalPadding(context: Context): Int {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.dp_12).toInt()
+        return context.resources.getDimension(com.dhug.base.R.dimen.dp_12).toInt()
     }
 
     override fun getChildVerticalPadding(context: Context): Int {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.dp_14).toInt()
+        return context.resources.getDimension(com.dhug.base.R.dimen.dp_14).toInt()
     }
 
     override fun getTitleSize(context: Context): Float {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.sp_15)
+        return context.resources.getDimension(com.dhug.base.R.dimen.sp_15)
     }
 
     override fun getLeftTitleSize(context: Context): Float {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.sp_13)
+        return context.resources.getDimension(com.dhug.base.R.dimen.sp_13)
     }
 
     override fun getRightTitleSize(context: Context): Float {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.sp_13)
+        return context.resources.getDimension(com.dhug.base.R.dimen.sp_13)
     }
 
     override fun getTitleIconPadding(context: Context): Int {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.dp_2).toInt()
+        return context.resources.getDimension(com.dhug.base.R.dimen.dp_2).toInt()
     }
 
     override fun getLeftIconPadding(context: Context): Int {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.dp_2).toInt()
+        return context.resources.getDimension(com.dhug.base.R.dimen.dp_2).toInt()
     }
 
     override fun getRightIconPadding(context: Context): Int {
-        return context.resources.getDimension(com.cooldev.base.R.dimen.dp_2).toInt()
+        return context.resources.getDimension(com.dhug.base.R.dimen.dp_2).toInt()
     }
 }

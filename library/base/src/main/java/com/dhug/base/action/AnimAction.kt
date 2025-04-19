@@ -1,6 +1,6 @@
 package com.dhug.base.action
 
-import com.cooldev.base.R
+import com.dhug.base.R
 
 /**
  * @Author: NGUYEN XUAN DIEU

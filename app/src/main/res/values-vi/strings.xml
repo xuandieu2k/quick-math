@@ -331,5 +331,8 @@ Brother Wheel
     <string name="question_answering_time">Thời gian trả lời câu hỏi </string>
     <string name="save_data_training">Lưu dữ liệu luyện tập</string>
     <string name="warning">Cảnh báo</string>
+    <string name="vietnamese">Tiếng Việt</string>
+    <string name="usa">Tiếng Anh</string>
+    <string name="number_range_invalid">Khoảng số không hợp lệ(Hợp lệ: 5 – 120)</string>
 
 </resources>

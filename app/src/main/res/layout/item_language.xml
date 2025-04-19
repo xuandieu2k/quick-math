@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="language"
+            type="com.dhug.quick_math.data.local.entities.Language" />
+
+        <variable
+            name="context"
+            type="android.content.Context" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:background="@color/black"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/dp_16"
+        android:paddingVertical="@dimen/dp_8">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_48"
+            android:layout_height="@dimen/dp_48"
+            tools:src="@drawable/ic_flag_vn"
+            android:src="@{language.getDrawableWithLanguage(context)}"/>
+
+
+        <com.dhug.quick_math.base.wiget.AppTextViewBold
+            style="@style/TextWhiteCommon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_8"
+            android:layout_weight="1"
+            android:text="@{language.language}"
+            tools:text="Việt Nam" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnChecked"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:src="@drawable/ic_check_green"
+            android:visibility="@{language.isVisibleWithChecked()}"/>
+
+
+    </LinearLayout>
+
+</layout>

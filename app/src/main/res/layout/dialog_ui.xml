@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/dp_20">
 
-        <vn.cooldev.wiget.wiget.SmartTextView
+        <com.dhug.wiget.wiget.SmartTextView
             android:id="@+id/tv_ui_title"
             style="@style/TextNormal"
             android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <vn.cooldev.wiget.wiget.SmartTextView
+            <com.dhug.wiget.wiget.SmartTextView
                 android:id="@+id/tv_ui_cancel"
                 android:fontFamily="@font/plus_jakarta_sans_medium"
                 android:layout_width="match_parent"
